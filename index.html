@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="crh" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical Resource Hints -->
+    <link rel="preload" href="/fonts/e-Ukraine-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/fonts/e-UkraineHead-Regular.otf" as="font" type="font/otf" crossorigin>
+    
+    <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QIRI'M YOUNG - Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat. Crimean Tatar digital heritage and language preservation organization.">
+    <meta name="keywords" content="Crimean Tatar, Qırımtatar, digital heritage, language preservation, youth organization, cultural preservation, nonprofit">
+    <meta name="author" content="QIRI'M YOUNG">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QIRI'M YOUNG - Qırımtatar Medeniıetni Dijital Alemi Sayesinde Saqlaw">
+    <meta property="og:description" content="Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat">
+    <meta property="og:url" content="https://young.qirimca.org">
+    <meta property="og:site_name" content="QIRI'M YOUNG">
+    <meta property="og:locale" content="crh_UA">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QIRI'M YOUNG - Digital Heritage Preservation">
+    <meta name="twitter:description" content="Preserving Crimean Tatar language and culture through digital innovation">
+    
+    <!-- Icons and Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#b8743e">
+    
+    <!-- Critical CSS Inline for Performance -->
+    <style>
+      /* Critical above-the-fold styles */
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        font-family: 'e-Ukraine', system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        color: #311812;
+        background-color: #fdf8f4;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading state */
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 1.125rem;
+        color: #a05d32;
+      }
+      
+      /* Font loading optimization */
+      @font-face {
+        font-family: 'e-Ukraine';
+        src: url('/fonts/e-Ukraine-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      @font-face {
+        font-family: 'e-Ukraine Head';
+        src: url('/fonts/e-UkraineHead-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      /* Prevent layout shift */
+      .hero-section {
+        min-height: 100vh;
+        position: relative;
+      }
+    </style>
+    
+    <!-- Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "QIRI'M YOUNG",
+      "alternateName": "QIRIM YOUNG",
+      "description": "Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat",
+      "url": "https://young.qirimca.org",
+      "logo": "https://young.qirimca.org/logo.png",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Ukraine"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Global"
+      },
+      "knowsAbout": [
+        "Crimean Tatar Language",
+        "Digital Heritage Preservation",
+        "Cultural Preservation",
+        "Language Technology",
+        "Youth Development"
+      ],
+      "sameAs": [
+        "https://qirimca.org"
+      ]
+    }
+    </script>
+    
+    <title>QIRI'M YOUNG - Qırımtatar Medeniıetni Dijital Saqlaw</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading">
+        <div>Yüklenе...</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
