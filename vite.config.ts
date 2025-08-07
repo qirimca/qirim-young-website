@@ -9,7 +9,6 @@ export default defineConfig({
     // Performance optimizations for PageSpeed
     target: 'esnext',
     minify: 'terser',
-    cssMinify: true,
     rollupOptions: {
       output: {
         // Manual chunks for better caching
@@ -24,7 +23,8 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true
-      }
+      },
+      mangle: true
     }
   },
   optimizeDeps: {
