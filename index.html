@@ -12,7 +12,29 @@
       gtag('config', 'G-YKLWW2LSNE');
     </script>
     
-    <!-- Crowdin In-Context Localization (only for pseudo-language 'ach') -->
+    <!-- Crowdin Integration Scripts -->
+    
+    <!-- JS Proxy Integration for live translation sync -->
+    <style>.js-proxy-blur {filter: blur(5px);}</style>
+    <script src="https://proxy-translator.app.crowdin.net/assets/proxy-translator.js"></script>
+    <script>
+      window.proxyTranslator.init({
+        baseUrl: "https://young.qirimtatarca.org",
+        appUrl: "https://proxy-translator.app.crowdin.net",
+        valuesParams: "U2FsdGVkX18kft3ZiSbpAC8PR9KoUsz0bRKhOzmGMEJMPPDXuW+pHDjR03EbAvrw3KJ4SKE/LOxupUILxp8ctV9XresbqOCBo1OpR21w99o5ad0cSINWSZAHOsehIQVc",
+        distributionBaseUrl: "https://distributions.crowdin.net",
+        filePath: "/young.qirimtatarca.org.json",
+        distribution: "e-76d3a253d7d7ad95f7323b2vic",
+        distributionSeparateFiles: false,
+        languagesData: {"en":{"code":"en","name":"English","twoLettersCode":"en"},"crh":{"code":"crh","name":"Crimean Tatar","twoLettersCode":"crh"},"uk":{"code":"uk","name":"Ukrainian","twoLettersCode":"uk"}},
+        defaultLanguage: "uk",
+        defaultLanguageTitle: "Ukrainian",
+        languageDetectType: "default",
+        poweredBy: true,
+      });
+    </script>
+    
+    <!-- In-Context Localization (only for pseudo-language 'ach') -->
     <script type="text/javascript">
       // Only load Crowdin In-Context for pseudo-language
       const urlParams = new URLSearchParams(window.location.search);
