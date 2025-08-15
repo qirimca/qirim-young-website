@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "crwdns423385:0crwdne423385:0",
+    "about": "crwdns423387:0crwdne423387:0",
+    "projects": "crwdns423389:0crwdne423389:0",
+    "impact": "crwdns423391:0crwdne423391:0",
+    "getInvolved": "crwdns423393:0crwdne423393:0",
+    "donate": "crwdns423395:0crwdne423395:0",
+    "volunteer": "crwdns423397:0crwdne423397:0",
+    "transparency": "crwdns423399:0crwdne423399:0",
+    "news": "crwdns423401:0crwdne423401:0"
+  },
+  "hero": {
+    "title": "crwdns423403:0crwdne423403:0",
+    "subtitle": "crwdns423405:0crwdne423405:0",
+    "cta": "crwdns423407:0crwdne423407:0",
+    "learnMore": "crwdns423409:0crwdne423409:0",
+    "stats": {
+      "language": "crwdns423411:0crwdne423411:0",
+      "projects": "crwdns423413:0crwdne423413:0",
+      "volunteers": "crwdns423415:0crwdne423415:0",
+      "impact": "crwdns423417:0crwdne423417:0"
+    }
+  },
+  "about": {
+    "title": "crwdns423419:0crwdne423419:0",
+    "mission": "crwdns423421:0crwdne423421:0",
+    "vision": "crwdns423423:0crwdne423423:0",
+    "values": "crwdns423425:0crwdne423425:0",
+    "missionText": "crwdns423427:0crwdne423427:0",
+    "visionText": "crwdns423429:0crwdne423429:0",
+    "valuesText": "crwdns423431:0crwdne423431:0"
+  },
+  "projects": {
+    "title": "crwdns423433:0crwdne423433:0",
+    "subtitle": "crwdns423435:0crwdne423435:0",
+    "nationalCorpus": {
+      "title": "crwdns423437:0crwdne423437:0",
+      "description": "crwdns423439:0crwdne423439:0"
+    },
+    "googleTranslate": {
+      "title": "crwdns423441:0crwdne423441:0",
+      "description": "crwdns423443:0crwdne423443:0"
+    },
+    "aiTools": {
+      "title": "crwdns423445:0crwdne423445:0",
+      "description": "crwdns423447:0crwdne423447:0"
+    },
+    "education": {
+      "title": "crwdns423449:0crwdne423449:0",
+      "description": "crwdns423451:0crwdne423451:0"
+    }
+  },
+  "impact": {
+    "title": "crwdns423453:0crwdne423453:0",
+    "subtitle": "crwdns423455:0crwdne423455:0",
+    "metrics": "crwdns423457:0crwdne423457:0",
+    "achievements": "crwdns423459:0crwdne423459:0",
+    "testimonials": "crwdns423461:0crwdne423461:0",
+    "research": "crwdns423463:0crwdne423463:0",
+    "joinImpact": "crwdns423465:0crwdne423465:0"
+  },
+  "getInvolved": {
+    "title": "crwdns423467:0crwdne423467:0",
+    "subtitle": "crwdns423469:0crwdne423469:0",
+    "volunteer": "crwdns423471:0crwdne423471:0",
+    "partnerships": "crwdns423473:0crwdne423473:0",
+    "support": "crwdns423475:0crwdne423475:0",
+    "ready": "crwdns423477:0crwdne423477:0"
+  },
+  "transparency": {
+    "title": "crwdns423479:0crwdne423479:0",
+    "subtitle": "crwdns423481:0crwdne423481:0",
+    "financial": "crwdns423483:0crwdne423483:0",
+    "governance": "crwdns423485:0crwdne423485:0",
+    "metrics": "crwdns423487:0crwdne423487:0",
+    "reports": "crwdns423489:0crwdne423489:0",
+    "ethics": "crwdns423491:0crwdne423491:0",
+    "questions": "crwdns423493:0crwdne423493:0"
+  },
+  "news": {
+    "title": "crwdns423495:0crwdne423495:0",
+    "subtitle": "crwdns423497:0crwdne423497:0",
+    "stayUpdated": "crwdns423499:0crwdne423499:0",
+    "followProgress": "crwdns423501:0crwdne423501:0"
+  },
+  "common": {
+    "readMore": "crwdns423503:0crwdne423503:0",
+    "learnMore": "crwdns423505:0crwdne423505:0",
+    "getStarted": "crwdns423507:0crwdne423507:0",
+    "contactUs": "crwdns423509:0crwdne423509:0",
+    "loading": "crwdns423511:0crwdne423511:0",
+    "viewProject": "crwdns423513:0crwdne423513:0",
+    "explore": "crwdns423515:0crwdne423515:0",
+    "download": "crwdns423517:0crwdne423517:0",
+    "available": "crwdns423519:0crwdne423519:0",
+    "comingSoon": "crwdns423521:0crwdne423521:0"
+  }
+}
