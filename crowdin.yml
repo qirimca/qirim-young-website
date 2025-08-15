@@ -10,11 +10,11 @@ preserve_hierarchy: true
 
 files:
   - source: "/src/i18n/locales/uk.json"
-    translation: "/src/i18n/locales/%two_letters_code%.json"
+    translation: "/src/i18n/locales/%three_letters_code%.json"
     languages_mapping:
-      two_letters_code:
+      three_letters_code:
         crh: "crh"
-        en: "en"
+        eng: "en"
     
 # Translation workflow
 # 1. Source: Ukrainian (uk) - maintained by QIRI'M YOUNG team
