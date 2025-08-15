@@ -4,9 +4,9 @@
 
 ### Project Configuration
 
-**Project Type**: Software Localization
-**Source Language**: Crimean Tatar (crh)
-**Target Languages**: Ukrainian (uk), English (en)
+**Project Type**: File-based Software Localization
+**Source Language**: Ukrainian (uk)
+**Target Languages**: Crimean Tatar (crh), English (en)
 
 ### Why Software Localization?
 
@@ -26,14 +26,14 @@
    - Description: `Crimean Tatar digital heritage website localization`
 
 2. **Languages Configuration**:
-   - Source: Crimean Tatar (crh) - maintained by QIRI'M YOUNG team
-   - Targets: Ukrainian (uk), English (en) - community/professional translation
+   - Source: Ukrainian (uk) - maintained by QIRI'M YOUNG team
+   - Targets: Crimean Tatar (crh), English (en) - community/professional translation
 
 3. **File Structure**:
    ```
    src/i18n/locales/
-   ├── crh.json (source - Crowdin pulls from this)
-   ├── uk.json (target - Crowdin pushes to this)
+   ├── uk.json (source - Crowdin pulls from this)
+   ├── crh.json (target - Crowdin pushes to this)
    └── en.json (target - Crowdin pushes to this)
    ```
 
@@ -46,7 +46,7 @@
 ### Translation Workflow
 
 1. **Content Updates**:
-   - Update `src/i18n/locales/crh.json` (source file)
+   - Update `src/i18n/locales/uk.json` (source file)
    - Crowdin automatically detects changes
    - Translators receive notifications
 
