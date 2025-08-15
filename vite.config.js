@@ -14,8 +14,10 @@ export default defineConfig({
         // Manual chunks for better caching
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router-dom'],
+          'i18n': ['react-i18next', 'i18next', 'i18next-browser-languagedetector'],
           'icons': ['lucide-react'],
-          'ui': ['@headlessui/react']
+          'motion': ['framer-motion']
         }
       }
     },
@@ -28,10 +30,15 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'lucide-react']
+    include: ['react', 'react-dom', 'lucide-react', 'react-router-dom', 'react-i18next', 'framer-motion']
   },
   server: {
-    open: true
+    open: true,
+    headers: {
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'SAMEORIGIN',
+      'Referrer-Policy': 'strict-origin-when-cross-origin'
+    }
   },
   preview: {
     port: 3000
