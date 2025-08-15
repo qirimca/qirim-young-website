@@ -20,36 +20,83 @@
       "projects": "crwdns423413:0crwdne423413:0",
       "volunteers": "crwdns423415:0crwdne423415:0",
       "impact": "crwdns423417:0crwdne423417:0"
-    }
+    },
+    "description": "crwdns423561:0crwdne423561:0",
+    "mission": "crwdns423563:0crwdne423563:0",
+    "digitalHeritage": "crwdns423565:0crwdne423565:0",
+    "communityDriven": "crwdns423567:0crwdne423567:0",
+    "openSource": "crwdns423569:0crwdne423569:0",
+    "academicPartnership": "crwdns423571:0crwdne423571:0"
   },
   "about": {
     "title": "crwdns423419:0crwdne423419:0",
     "mission": "crwdns423421:0crwdne423421:0",
     "vision": "crwdns423423:0crwdne423423:0",
     "values": "crwdns423425:0crwdne423425:0",
-    "missionText": "crwdns423427:0crwdne423427:0",
-    "visionText": "crwdns423429:0crwdne423429:0",
-    "valuesText": "crwdns423431:0crwdne423431:0"
+    "missionText": "crwdns423573:0crwdne423573:0",
+    "visionText": "crwdns423575:0crwdne423575:0",
+    "valuesText": "crwdns423577:0crwdne423577:0",
+    "story": "crwdns423579:0crwdne423579:0",
+    "storyText": "crwdns423581:0crwdne423581:0",
+    "team": "crwdns423583:0crwdne423583:0",
+    "partnerships": "crwdns423585:0crwdne423585:0",
+    "achievements": "crwdns423587:0crwdne423587:0",
+    "timeline": "crwdns423589:0crwdne423589:0",
+    "founded": "crwdns423591:0crwdne423591:0",
+    "firstProject": "crwdns423593:0crwdne423593:0",
+    "corpusLaunch": "crwdns423595:0crwdne423595:0",
+    "partnerships2021": "crwdns423597:0crwdne423597:0",
+    "expansion": "crwdns423599:0crwdne423599:0",
+    "recognition": "crwdns423601:0crwdne423601:0"
   },
   "projects": {
     "title": "crwdns423433:0crwdne423433:0",
-    "subtitle": "crwdns423435:0crwdne423435:0",
+    "subtitle": "crwdns423603:0crwdne423603:0",
     "nationalCorpus": {
-      "title": "crwdns423437:0crwdne423437:0",
-      "description": "crwdns423439:0crwdne423439:0"
+      "title": "crwdns423605:0crwdne423605:0",
+      "description": "crwdns423607:0crwdne423607:0",
+      "features": "crwdns423609:0crwdne423609:0",
+      "searchTools": "crwdns423611:0crwdne423611:0",
+      "statistics": "crwdns423613:0crwdne423613:0",
+      "downloads": "crwdns423615:0crwdne423615:0",
+      "api": "crwdns423617:0crwdne423617:0"
     },
-    "googleTranslate": {
-      "title": "crwdns423441:0crwdne423441:0",
-      "description": "crwdns423443:0crwdne423443:0"
+    "parallelCorpus": {
+      "title": "crwdns423619:0crwdne423619:0",
+      "description": "crwdns423621:0crwdne423621:0",
+      "alignment": "crwdns423623:0crwdne423623:0",
+      "domains": "crwdns423625:0crwdne423625:0",
+      "quality": "crwdns423627:0crwdne423627:0"
     },
-    "aiTools": {
-      "title": "crwdns423445:0crwdne423445:0",
-      "description": "crwdns423447:0crwdne423447:0"
+    "languageCourses": {
+      "title": "crwdns423629:0crwdne423629:0",
+      "description": "crwdns423631:0crwdne423631:0",
+      "interactive": "crwdns423633:0crwdne423633:0",
+      "pronunciation": "crwdns423635:0crwdne423635:0",
+      "progress": "crwdns423637:0crwdne423637:0"
     },
-    "education": {
-      "title": "crwdns423449:0crwdne423449:0",
-      "description": "crwdns423451:0crwdne423451:0"
-    }
+    "qirimkey": {
+      "title": "crwdns423639:0crwdne423639:0",
+      "description": "crwdns423641:0crwdne423641:0",
+      "download": "crwdns423643:0crwdne423643:0",
+      "features": "crwdns423645:0crwdne423645:0",
+      "support": "crwdns423647:0crwdne423647:0"
+    },
+    "research": {
+      "title": "crwdns423649:0crwdne423649:0",
+      "description": "crwdns423651:0crwdne423651:0",
+      "publications": "crwdns423653:0crwdne423653:0",
+      "conferences": "crwdns423655:0crwdne423655:0",
+      "collaboration": "crwdns423657:0crwdne423657:0"
+    },
+    "technicalSpecs": "crwdns423659:0crwdne423659:0",
+    "userGuide": "crwdns423661:0crwdne423661:0",
+    "sourceCode": "crwdns423663:0crwdne423663:0",
+    "contribute": "crwdns423665:0crwdne423665:0",
+    "funding": "crwdns423667:0crwdne423667:0",
+    "timeline": "crwdns423669:0crwdne423669:0",
+    "metrics": "crwdns423671:0crwdne423671:0",
+    "feedback": "crwdns423673:0crwdne423673:0"
   },
   "impact": {
     "title": "crwdns423453:0crwdne423453:0",
@@ -58,7 +105,29 @@
     "achievements": "crwdns423459:0crwdne423459:0",
     "testimonials": "crwdns423461:0crwdne423461:0",
     "research": "crwdns423463:0crwdne423463:0",
-    "joinImpact": "crwdns423465:0crwdne423465:0"
+    "joinImpact": "crwdns423465:0crwdne423465:0",
+    "stats": {
+      "users": "crwdns423675:0crwdne423675:0",
+      "downloads": "crwdns423677:0crwdne423677:0",
+      "contributions": "crwdns423679:0crwdne423679:0",
+      "countries": "crwdns423681:0crwdne423681:0",
+      "institutions": "crwdns423683:0crwdne423683:0",
+      "languages": "crwdns423685:0crwdne423685:0"
+    },
+    "categories": {
+      "education": "crwdns423687:0crwdne423687:0",
+      "research": "crwdns423689:0crwdne423689:0",
+      "technology": "crwdns423691:0crwdne423691:0",
+      "community": "crwdns423693:0crwdne423693:0",
+      "preservation": "crwdns423695:0crwdne423695:0",
+      "innovation": "crwdns423697:0crwdne423697:0"
+    },
+    "stories": "crwdns423699:0crwdne423699:0",
+    "partners": "crwdns423701:0crwdne423701:0",
+    "recognition": "crwdns423703:0crwdne423703:0",
+    "media": "crwdns423705:0crwdne423705:0",
+    "awards": "crwdns423707:0crwdne423707:0",
+    "future": "crwdns423709:0crwdne423709:0"
   },
   "getInvolved": {
     "title": "crwdns423467:0crwdne423467:0",
@@ -66,7 +135,25 @@
     "volunteer": "crwdns423471:0crwdne423471:0",
     "partnerships": "crwdns423473:0crwdne423473:0",
     "support": "crwdns423475:0crwdne423475:0",
-    "ready": "crwdns423477:0crwdne423477:0"
+    "ready": "crwdns423477:0crwdne423477:0",
+    "roles": {
+      "developer": "crwdns423711:0crwdne423711:0",
+      "translator": "crwdns423713:0crwdne423713:0",
+      "researcher": "crwdns423715:0crwdne423715:0",
+      "designer": "crwdns423717:0crwdne423717:0",
+      "linguist": "crwdns423719:0crwdne423719:0",
+      "educator": "crwdns423721:0crwdne423721:0"
+    },
+    "skills": "crwdns423723:0crwdne423723:0",
+    "time": "crwdns423725:0crwdne423725:0",
+    "remote": "crwdns423727:0crwdne423727:0",
+    "training": "crwdns423729:0crwdne423729:0",
+    "community": "crwdns423731:0crwdne423731:0",
+    "benefits": "crwdns423733:0crwdne423733:0",
+    "apply": "crwdns423735:0crwdne423735:0",
+    "contact": "crwdns423737:0crwdne423737:0",
+    "events": "crwdns423739:0crwdne423739:0",
+    "newsletter": "crwdns423741:0crwdne423741:0"
   },
   "transparency": {
     "title": "crwdns423479:0crwdne423479:0",
@@ -76,13 +163,58 @@
     "metrics": "crwdns423487:0crwdne423487:0",
     "reports": "crwdns423489:0crwdne423489:0",
     "ethics": "crwdns423491:0crwdne423491:0",
-    "questions": "crwdns423493:0crwdne423493:0"
+    "questions": "crwdns423493:0crwdne423493:0",
+    "annualReports": "crwdns423743:0crwdne423743:0",
+    "budget": "crwdns423745:0crwdne423745:0",
+    "donors": "crwdns423747:0crwdne423747:0",
+    "expenses": "crwdns423749:0crwdne423749:0",
+    "board": "crwdns423751:0crwdne423751:0",
+    "policies": "crwdns423753:0crwdne423753:0",
+    "procedures": "crwdns423755:0crwdne423755:0",
+    "audit": "crwdns423757:0crwdne423757:0",
+    "compliance": "crwdns423759:0crwdne423759:0",
+    "feedback": "crwdns423761:0crwdne423761:0",
+    "complaints": "crwdns423763:0crwdne423763:0",
+    "improvements": "crwdns423765:0crwdne423765:0"
   },
   "news": {
     "title": "crwdns423495:0crwdne423495:0",
     "subtitle": "crwdns423497:0crwdne423497:0",
     "stayUpdated": "crwdns423499:0crwdne423499:0",
-    "followProgress": "crwdns423501:0crwdne423501:0"
+    "followProgress": "crwdns423501:0crwdne423501:0",
+    "categories": {
+      "releases": "crwdns423767:0crwdne423767:0",
+      "research": "crwdns423769:0crwdne423769:0",
+      "partnerships": "crwdns423771:0crwdne423771:0",
+      "events": "crwdns423773:0crwdne423773:0",
+      "media": "crwdns423775:0crwdne423775:0",
+      "community": "crwdns423777:0crwdne423777:0"
+    },
+    "archive": "crwdns423779:0crwdne423779:0",
+    "subscribe": "crwdns423781:0crwdne423781:0",
+    "rss": "crwdns423783:0crwdne423783:0",
+    "social": "crwdns423785:0crwdne423785:0",
+    "press": "crwdns423787:0crwdne423787:0",
+    "interviews": "crwdns423789:0crwdne423789:0"
+  },
+  "footer": {
+    "description": "crwdns423791:0crwdne423791:0",
+    "quickLinks": "crwdns423793:0crwdne423793:0",
+    "projects": "crwdns423795:0crwdne423795:0",
+    "resources": "crwdns423797:0crwdne423797:0",
+    "legal": "crwdns423799:0crwdne423799:0",
+    "privacy": "crwdns423801:0crwdne423801:0",
+    "terms": "crwdns423803:0crwdne423803:0",
+    "license": "crwdns423805:0crwdne423805:0",
+    "copyright": "crwdns423807:0crwdne423807:0",
+    "contact": "crwdns423809:0crwdne423809:0",
+    "address": "crwdns423811:0crwdne423811:0",
+    "email": "crwdns423813:0crwdne423813:0",
+    "phone": "crwdns423815:0crwdne423815:0",
+    "social": "crwdns423817:0crwdne423817:0",
+    "donate": "crwdns423819:0crwdne423819:0",
+    "volunteer": "crwdns423821:0crwdne423821:0",
+    "newsletter": "crwdns423823:0crwdne423823:0"
   },
   "common": {
     "readMore": "crwdns423503:0crwdne423503:0",
@@ -94,6 +226,44 @@
     "explore": "crwdns423515:0crwdne423515:0",
     "download": "crwdns423517:0crwdne423517:0",
     "available": "crwdns423519:0crwdne423519:0",
-    "comingSoon": "crwdns423521:0crwdne423521:0"
+    "comingSoon": "crwdns423521:0crwdne423521:0",
+    "close": "crwdns423825:0crwdne423825:0",
+    "open": "crwdns423827:0crwdne423827:0",
+    "save": "crwdns423829:0crwdne423829:0",
+    "cancel": "crwdns423831:0crwdne423831:0",
+    "submit": "crwdns423833:0crwdne423833:0",
+    "edit": "crwdns423835:0crwdne423835:0",
+    "delete": "crwdns423837:0crwdne423837:0",
+    "share": "crwdns423839:0crwdne423839:0",
+    "copy": "crwdns423841:0crwdne423841:0",
+    "search": "crwdns423843:0crwdne423843:0",
+    "filter": "crwdns423845:0crwdne423845:0",
+    "sort": "crwdns423847:0crwdne423847:0",
+    "refresh": "crwdns423849:0crwdne423849:0",
+    "back": "crwdns423851:0crwdne423851:0",
+    "next": "crwdns423853:0crwdne423853:0",
+    "previous": "crwdns423855:0crwdne423855:0",
+    "continue": "crwdns423857:0crwdne423857:0",
+    "finish": "crwdns423859:0crwdne423859:0",
+    "yes": "crwdns423861:0crwdne423861:0",
+    "no": "crwdns423863:0crwdne423863:0",
+    "maybe": "crwdns423865:0crwdne423865:0",
+    "unknown": "crwdns423867:0crwdne423867:0",
+    "error": "crwdns423869:0crwdne423869:0",
+    "success": "crwdns423871:0crwdne423871:0",
+    "warning": "crwdns423873:0crwdne423873:0",
+    "info": "crwdns423875:0crwdne423875:0",
+    "help": "crwdns423877:0crwdne423877:0",
+    "about": "crwdns423879:0crwdne423879:0",
+    "version": "crwdns423881:0crwdne423881:0",
+    "language": "crwdns423883:0crwdne423883:0",
+    "settings": "crwdns423885:0crwdne423885:0",
+    "profile": "crwdns423887:0crwdne423887:0",
+    "account": "crwdns423889:0crwdne423889:0",
+    "login": "crwdns423891:0crwdne423891:0",
+    "logout": "crwdns423893:0crwdne423893:0",
+    "register": "crwdns423895:0crwdne423895:0",
+    "forgot": "crwdns423897:0crwdne423897:0",
+    "remember": "crwdns423899:0crwdne423899:0"
   }
 }
