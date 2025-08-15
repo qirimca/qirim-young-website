@@ -1,18 +1,40 @@
 import { useState } from 'react'
-import { Menu, X, Heart } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Menu, X, Heart, Globe } from 'lucide-react'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
+  const { t, i18n } = useTranslation()
+  const location = useLocation()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const toggleLangMenu = () => {
+    setIsLangMenuOpen(!isLangMenuOpen)
+  }
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng)
+    setIsLangMenuOpen(false)
+  }
+
   const navLinks = [
-    { href: '#about', label: 'Aqqında', labelEn: 'About' },
-    { href: '#projects', label: 'Loyihalar', labelEn: 'Projects' },
-    { href: '#impact', label: 'Tesir', labelEn: 'Impact' },
-    { href: '#contact', label: 'Aloqa', labelEn: 'Contact' },
+    { href: '/about', label: t('nav.about') },
+    { href: '/projects', label: t('nav.projects') },
+    { href: '/impact', label: t('nav.impact') },
+    { href: '/news', label: t('nav.news') },
+    { href: '/get-involved', label: t('nav.getInvolved') },
+    { href: '/transparency', label: t('nav.transparency') },
+  ]
+
+  const languages = [
+    { code: 'crh', name: 'Qırımtatar', flag: '🇺🇦' },
+    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
+    { code: 'en', name: 'English', flag: '🇺🇸' }
   ]
 
   return (
@@ -20,48 +42,105 @@ const Navbar = () => {
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-heritage-gold to-crimean-600 rounded-lg flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-yellow-600 to-amber-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl font-crimean-head">Q</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-crimean-800 font-crimean-head">QIRI'M YOUNG</span>
-              <span className="text-xs text-crimean-600 hidden sm:block">Dijital Miras</span>
+              <span className="text-xl font-bold text-amber-800 font-crimean-head">QIRI'M YOUNG</span>
+              <span className="text-xs text-amber-600 hidden sm:block">Dijital Miras</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
-                className="text-crimean-700 hover:text-heritage-gold font-medium transition-colors duration-200 relative group"
+                to={link.href}
+                className={`text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200 relative group ${
+                  location.pathname === link.href ? 'text-yellow-600' : ''
+                }`}
               >
                 <span className="block">{link.label}</span>
-                <span className="text-xs text-crimean-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {link.labelEn}
-                </span>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-heritage-gold transition-all duration-200 group-hover:w-full"></div>
-              </a>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-600 transition-all duration-200 group-hover:w-full"></div>
+              </Link>
             ))}
             
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={toggleLangMenu}
+                className="flex items-center space-x-1 text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+                aria-label="Change language"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">{i18n.language.toUpperCase()}</span>
+              </button>
+              
+              {isLangMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-amber-200 py-2 z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full px-4 py-2 text-left hover:bg-amber-50 transition-colors flex items-center space-x-3 ${
+                        i18n.language === lang.code ? 'bg-amber-50 text-yellow-600' : 'text-amber-700'
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             {/* Donate Button */}
-            <a
-              href="#donate"
+            <Link
+              to="/get-involved"
               className="btn-primary inline-flex items-center space-x-2"
-              aria-label="Make a donation"
+              aria-label="Get involved"
             >
               <Heart className="w-4 h-4" />
-              <span>Yardım Et</span>
-            </a>
+              <span>{t('nav.donate')}</span>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={toggleLangMenu}
+                className="flex items-center space-x-1 text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+                aria-label="Change language"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-xs">{i18n.language.toUpperCase()}</span>
+              </button>
+              
+              {isLangMenuOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-amber-200 py-2 z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full px-3 py-2 text-left hover:bg-amber-50 transition-colors flex items-center space-x-2 text-sm ${
+                        i18n.language === lang.code ? 'bg-amber-50 text-yellow-600' : 'text-amber-700'
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <button
               onClick={toggleMenu}
-              className="text-crimean-700 hover:text-heritage-gold p-2"
+              className="text-amber-700 hover:text-yellow-600 p-2"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
             >
@@ -74,26 +153,27 @@ const Navbar = () => {
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4 space-y-4 border-t border-crimean-200">
+          <div className="py-4 space-y-4 border-t border-amber-200">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
-                className="block text-crimean-700 hover:text-heritage-gold font-medium transition-colors duration-200 py-2"
+                to={link.href}
+                className={`block text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200 py-2 ${
+                  location.pathname === link.href ? 'text-yellow-600' : ''
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="block">{link.label}</span>
-                <span className="text-xs text-crimean-500">{link.labelEn}</span>
-              </a>
+              </Link>
             ))}
-            <a
-              href="#donate"
+            <Link
+              to="/get-involved"
               className="btn-primary inline-flex items-center space-x-2 w-full justify-center mt-4"
               onClick={() => setIsMenuOpen(false)}
             >
               <Heart className="w-4 h-4" />
-              <span>Yardım Et</span>
-            </a>
+              <span>{t('nav.donate')}</span>
+            </Link>
           </div>
         </div>
       </div>
