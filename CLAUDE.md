@@ -98,8 +98,8 @@ All content is based on real QIRI'M YOUNG research:
 
 ### Build Configuration
 
-- **Base Path**: `/qirim-young-website/` for GitHub Pages deployment
-- **Performance Optimized**: Manual chunks, dependency optimization
+- **Base Path**: Configured dynamically (`.github/` for GitHub Pages, `/` for subdomain)
+- **Performance Optimized**: Manual chunks, dependency optimization, code splitting
 - **TypeScript**: Strict mode with comprehensive linting rules
 - **Vite 7**: Modern build tooling with React 19 support
 
@@ -110,10 +110,11 @@ All content is based on real QIRI'M YOUNG research:
 - Automated via `.github/workflows/deploy.yml` on push to master
 - Build includes sitemap generation, security headers, and optimization
 
-**Custom Domain (FTP):**
+**Subdomain Deployment (Production):**
 - Target: https://young.qirimtatarca.org
-- Instructions in `DEPLOYMENT.md`
-- All files from `dist/` including sitemap.xml, robots.txt, .htaccess
+- cPanel setup: Document Root `/public_html/young/` (separate subdomain)
+- Base path: `/` (optimized for subdomain deployment)
+- Instructions in `DEPLOYMENT.md` with complete cPanel configuration
 
 **SEO Features:**
 - Dynamic sitemap.xml with 21 URLs (7 pages × 3 languages)
@@ -121,6 +122,21 @@ All content is based on real QIRI'M YOUNG research:
 - Security headers and performance optimization
 - Google/Bing webmaster tools ready
 - PageSpeed.web.dev optimized structure
+
+## Important Technical Notes
+
+### Current Configuration (Ready for Production)
+- ✅ **Domain**: All URLs corrected to `young.qirimtatarca.org` (not qirimca.org)
+- ✅ **Typography**: Fixed font-crimean utilities, proper e-Ukraine font loading
+- ✅ **Build Path**: `base: "/"` for subdomain deployment
+- ✅ **SEO**: Sitemap automatically regenerated with correct domain
+- ✅ **Security**: All headers, .htaccess, robots.txt included
+
+### Deployment Process
+1. **cPanel Setup**: Create subdomain with separate document root `/public_html/young/`
+2. **Build**: `npm run build` (includes sitemap generation)
+3. **Upload**: All `dist/` contents to subdomain directory via FTP
+4. **Verify**: Check https://young.qirimtatarca.org and all 3 languages
 
 ## Cultural Context & Content Guidelines
 
