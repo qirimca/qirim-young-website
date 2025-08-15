@@ -1,0 +1,27 @@
+# Crowdin configuration for QIRI'M YOUNG Website
+# Project Type: Software Localization
+
+project_id: "qirim-young-website"
+api_token_env: "CROWDIN_API_TOKEN"
+base_path: "."
+base_url: "https://api.crowdin.com"
+
+preserve_hierarchy: true
+
+files:
+  - source: "/src/i18n/locales/crh.json"
+    translation: "/src/i18n/locales/%two_letters_code%.json"
+    languages_mapping:
+      two_letters_code:
+        uk: "uk"
+        en: "en"
+    
+# Translation workflow
+# 1. Source: Crimean Tatar (crh) - maintained by QIRI'M YOUNG team
+# 2. Targets: Ukrainian (uk), English (en) - community translations
+# 3. Auto-sync with GitHub via webhook
+
+# Commands:
+# Upload sources: crowdin upload sources
+# Download translations: crowdin download
+# Build translations: crowdin build
