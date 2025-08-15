@@ -1,11 +1,12 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { ukTranslations } from './translations/uk'
-import { crhTranslations } from './translations/crh'
-import { enTranslations } from './translations/en'
 
-// Use TypeScript translations for now, JSON files are for Crowdin sync
+// JSON translations - single source of truth for Crowdin sync
+import ukTranslations from './locales/uk.json'
+import crhTranslations from './locales/crh.json'
+import enTranslations from './locales/en.json'
+
 const resources = {
   uk: { translation: ukTranslations },
   crh: { translation: crhTranslations },

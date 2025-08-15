@@ -8,26 +8,26 @@
 
 ## Recent Updates (2025-08-15)
 
-### ✅ COMPLETED: Crowdin In-Context Translation Preview
-- **Live Translation Editing**: Translators can edit content directly on the website
-- **Real-time Preview**: Changes visible immediately without page refresh
-- **Professional Workflow**: Industry-standard in-context translation experience
-- **JavaScript Integration**: Crowdin In-Context snippet active (project ID: de495f6e792857bdac1d7433af340e9e)
-- **Pseudo-language Support**: Configured for metadata storage and context awareness
+### ✅ COMPLETED: Comprehensive Translation System Overhaul
+- **Single Source of Truth**: JSON files now primary system (TypeScript deprecated)
+- **Ukrainian Full Translation**: Complete 268-line Ukrainian translation as source language  
+- **English & Crimean Tatar**: Comprehensive translations completed for all languages
+- **Mixed Language Fix**: Resolved all mixed-language content issues
+- **Synchronization**: Eliminated dual TypeScript/JSON system conflicts
 
-### ✅ COMPLETED: Full Localization Infrastructure
-- **Project Type**: File-based Software Localization
-- **Source Language**: Ukrainian (uk) - strategically chosen for translator availability
-- **Target Languages**: Crimean Tatar (crh), English (en)
-- **Dual File System**: TypeScript files for development, JSON files for Crowdin sync
-- **GitHub Integration**: Automated workflow with l10n_master service branch
+### ✅ COMPLETED: Advanced Crowdin Integration
+- **JS Proxy Integration**: Live translation sync with over-the-air delivery
+- **In-Context Preview**: Translators edit directly on website (?lang=ach)
+- **Real-time Sync**: Automatic translation updates without page refresh
+- **Distribution System**: Live translation delivery via Crowdin CDN
+- **Professional Workflow**: Full translation management with visual context
 
-### ✅ COMPLETED: Production Deployment Setup
+### ✅ COMPLETED: Production Deployment & Analytics
 - **Domain**: All URLs configured for young.qirimtatarca.org
 - **Google Analytics**: G-YKLWW2LSNE integrated and tracking
 - **Build System**: Optimized for subdomain deployment (base: "/")
 - **FTP Ready**: Complete dist/ folder ready for /public_html/young/
-- **Website Functionality**: Fully tested and operational
+- **Translation Testing**: ?lang=ach pseudo-language confirmed working
 
 ## Development Commands
 
@@ -65,16 +65,17 @@ npm run sitemap      # Updates sitemap.xml with latest content
 
 ### Advanced Internationalization
 - **Framework**: react-i18next with language detection
-- **Languages**: 3 languages (crh, uk, en) with proper fallbacks
-- **Translation Management**: Dual system - TS for development, JSON for Crowdin
+- **Languages**: 3 languages (crh, uk, en) with comprehensive translations
+- **Translation Management**: JSON-only system - single source of truth
 - **URL Structure**: Query parameter (?lang=uk) for SEO optimization
-- **In-Context Preview**: Live editing capability for professional translators
+- **Source Language**: Ukrainian (268 translation keys) for professional translators
 
 ### Crowdin Integration Features
-- **In-Context Editing**: Direct translation on live website
-- **Pseudo-language**: Metadata storage for translation context
-- **Real-time Sync**: Automatic GitHub integration with pull requests
-- **Professional Tools**: Industry-standard translation management
+- **JS Proxy Integration**: Live translation delivery via CDN
+- **In-Context Editing**: Direct translation on live website (?lang=ach)
+- **Over-the-Air Updates**: Real-time translation sync without deployment
+- **Distribution System**: Advanced content delivery with automatic updates
+- **Professional Tools**: Complete translation management platform
 - **Quality Assurance**: Built-in review and approval workflow
 
 ### Performance Optimizations
@@ -90,9 +91,9 @@ qirim-young-website/
 │   ├── components/          # React components with i18n
 │   ├── pages/              # Page components (7 pages)
 │   ├── i18n/               # Internationalization system
-│   │   ├── config.ts       # i18next setup with language detection
-│   │   ├── locales/        # JSON files for Crowdin (uk, crh, en)
-│   │   └── translations/   # TypeScript files for development
+│   │   ├── config.ts       # i18next setup (JSON imports only)
+│   │   ├── locales/        # JSON files - single source of truth (uk, crh, en)
+│   │   └── translations/   # [DEPRECATED] TypeScript files (kept for reference)
 │   ├── assets/             # Optimized static assets
 │   └── main.tsx            # Application entry with React 19 features
 ├── public/                 # Public assets and fonts
@@ -113,12 +114,12 @@ qirim-young-website/
 5. **Publish**: Translations sync automatically to GitHub
 
 ### Translation Management Process
-1. **Content Updates**: Modify `src/i18n/locales/uk.json` (source)
-2. **Auto-Detection**: Crowdin GitHub integration detects changes
-3. **Translator Notification**: Professional translators receive assignments
-4. **In-Context Work**: Translators edit directly on live website
-5. **Quality Review**: Built-in review and approval process
-6. **Auto-Deployment**: Completed translations merge via pull requests
+1. **Content Updates**: Modify `src/i18n/locales/uk.json` (single source)
+2. **JS Proxy Sync**: Crowdin automatically extracts website content
+3. **Over-the-Air Delivery**: Translations update instantly via CDN
+4. **In-Context Work**: Translators edit directly on live website (?lang=ach)
+5. **Real-time Preview**: Changes visible immediately without deployment
+6. **Quality Workflow**: Built-in review and approval with visual context
 
 ### Professional Features
 - **Visual Context**: Translators see exactly where text appears
