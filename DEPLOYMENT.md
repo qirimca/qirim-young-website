@@ -30,23 +30,28 @@ All files from the `dist/` directory need to be uploaded to the web server root:
 - `fonts/` - Complete font directory with e-Ukraine fonts
 - `logo.svg` - QIRI'M YOUNG logo
 
-### FTP Configuration for qirimtatarca.org
+### FTP Configuration for young.qirimtatarca.org
 
-1. **Server Settings**:
+1. **cPanel Subdomain Setup**:
+   - Domain: `young.qirimtatarca.org`
+   - Document Root: `/public_html/young/` (DON'T share with main domain)
+   - This creates separate directory for subdomain
+
+2. **Server Settings**:
    - Host: [Your FTP host for qirimtatarca.org]
-   - Username: [Your FTP username]
+   - Username: [Your FTP username]  
    - Password: [Your FTP password]
    - Port: 21 (or 22 for SFTP)
 
-2. **Upload Process**:
+3. **Upload Process**:
    ```bash
    # After running npm run build
-   # Upload all contents of dist/ directory to web root
-   ftp> cd /public_html  # or your web root directory
-   ftp> mput dist/*      # Upload all files
-   ftp> mkdir assets     # Create assets directory
+   # Upload all contents of dist/ directory to subdomain root
+   ftp> cd /public_html/young/  # subdomain directory
+   ftp> mput dist/*             # Upload all files
+   ftp> mkdir assets            # Create assets directory
    ftp> cd assets
-   ftp> mput dist/assets/*  # Upload all assets
+   ftp> mput dist/assets/*      # Upload all assets
    ```
 
 3. **Important Notes**:
@@ -57,10 +62,11 @@ All files from the `dist/` directory need to be uploaded to the web server root:
 
 ### Domain Configuration
 
-For custom domain (qirimtatarca.org):
-1. Update `vite.config.js` base URL to `"/"` for production
-2. Rebuild with `npm run build`
-3. Upload new build to FTP
+For subdomain deployment (young.qirimtatarca.org):
+1. ✅ `vite.config.js` already configured with `base: "/"` 
+2. ✅ Build ready with `npm run build`
+3. ✅ Upload dist/ contents to `/public_html/young/` directory
+4. ✅ All paths are relative to subdomain root
 
 ### Verification Checklist
 
