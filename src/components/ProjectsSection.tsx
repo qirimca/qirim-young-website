@@ -114,9 +114,9 @@ const ProjectsSection = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-heritage-forest text-white'
-      case 'active': return 'bg-heritage-sky text-white'
-      case 'development': return 'bg-heritage-gold text-white'
+      case 'completed': return 'bg-green-600 text-white'
+      case 'active': return 'bg-blue-600 text-white'
+      case 'development': return 'bg-yellow-600 text-white'
       default: return 'bg-crimean-200 text-crimean-700'
     }
   }
@@ -136,14 +136,14 @@ const ProjectsSection = () => {
         {/* Section Header */}
         <div className="text-center space-y-6 mb-16">
           <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm">
-            <div className="w-2 h-2 bg-heritage-sky rounded-full"></div>
+            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
             <span className="text-sm font-medium text-crimean-700">Loyihalarımız</span>
             <span className="text-xs text-crimean-500">Our Projects</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-crimean-800 font-crimean-head">
             Dijital İnnovatsiya ile
-            <span className="block text-heritage-sky">Medeniıetni Yaşatmaq</span>
+            <span className="block text-blue-600">Medeniıetni Yaşatmaq</span>
           </h2>
           
           <p className="text-xl text-crimean-600 max-w-3xl mx-auto leading-relaxed">
@@ -155,7 +155,7 @@ const ProjectsSection = () => {
         {/* Featured Projects */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-crimean-800 font-crimean-head mb-8 flex items-center">
-            <div className="w-1 h-6 bg-heritage-gold rounded mr-3"></div>
+            <div className="w-1 h-6 bg-yellow-600 rounded mr-3"></div>
             Öne Çıkan Projeler
           </h3>
           
@@ -166,14 +166,14 @@ const ProjectsSection = () => {
                 <div key={project.id} className="card group hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start space-x-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-heritage-gold to-crimean-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
+                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-600 to-crimean-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div className="space-y-1">
                         <h4 className="text-xl font-bold text-crimean-800 font-crimean-head">
                           {project.titleCrh}
                         </h4>
-                        <p className="text-sm text-heritage-gold font-medium">
+                        <p className="text-sm text-yellow-600 font-medium">
                           {project.title}
                         </p>
                         <div className="flex items-center space-x-2">
@@ -196,7 +196,7 @@ const ProjectsSection = () => {
                     <div className="flex items-center justify-between">
                       <div className="text-sm">
                         <span className="font-medium text-crimean-800">Etki: </span>
-                        <span className="text-heritage-gold font-semibold">{project.impact}</span>
+                        <span className="text-yellow-600 font-semibold">{project.impact}</span>
                       </div>
                       
                       <div className="flex space-x-2">
@@ -205,7 +205,7 @@ const ProjectsSection = () => {
                             href={project.links.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 bg-heritage-gold text-white rounded-lg hover:bg-heritage-gold/90 transition-colors"
+                            className="p-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-600/90 transition-colors"
                             aria-label="View demo"
                           >
                             <ExternalLink className="w-4 h-4" />
@@ -245,7 +245,7 @@ const ProjectsSection = () => {
         {/* All Projects */}
         <div>
           <h3 className="text-2xl font-bold text-crimean-800 font-crimean-head mb-8 flex items-center">
-            <div className="w-1 h-6 bg-heritage-sky rounded mr-3"></div>
+            <div className="w-1 h-6 bg-blue-600 rounded mr-3"></div>
             Tüm Projeler
           </h3>
           
@@ -276,7 +276,7 @@ const ProjectsSection = () => {
                     <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(project.status)}`}>
                       {getStatusText(project.status)}
                     </span>
-                    <span className="text-xs text-heritage-gold font-semibold">
+                    <span className="text-xs text-yellow-600 font-semibold">
                       {project.impact}
                     </span>
                   </div>

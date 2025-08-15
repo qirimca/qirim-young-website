@@ -2,10 +2,10 @@ import { BarChart, Users, Globe, Award } from 'lucide-react'
 
 const ImpactSection = () => {
   const stats = [
-    { icon: Users, value: '50K+', label: 'Kullanıcı', labelEn: 'Users', color: 'heritage-gold' },
-    { icon: Globe, value: '15+', label: 'Ülke', labelEn: 'Countries', color: 'heritage-sky' },
-    { icon: Award, value: '10+', label: 'Ödül', labelEn: 'Awards', color: 'heritage-forest' },
-    { icon: BarChart, value: '1M+', label: 'Etkileşim', labelEn: 'Interactions', color: 'heritage-crimson' }
+    { icon: Users, value: '50K+', label: 'Kullanıcı', labelEn: 'Users', color: 'yellow-600' },
+    { icon: Globe, value: '15+', label: 'Ülke', labelEn: 'Countries', color: 'blue-600' },
+    { icon: Award, value: '10+', label: 'Ödül', labelEn: 'Awards', color: 'green-600' },
+    { icon: BarChart, value: '1M+', label: 'Etkileşim', labelEn: 'Interactions', color: 'red-600' }
   ]
 
   return (
