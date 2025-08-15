@@ -446,7 +446,7 @@ export default function TransparencyPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:young@qirimca.org"
+              href="mailto:young@qirimtatarca.org"
               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
             >
               <FileText className="w-5 h-5" />

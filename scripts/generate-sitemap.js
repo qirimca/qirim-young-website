@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOMAIN = 'https://young.qirimca.org';
+const DOMAIN = 'https://young.qirimtatarca.org';
 const LANGUAGES = ['crh', 'uk', 'en'];
 const CURRENT_DATE = new Date().toISOString().split('T')[0];
 

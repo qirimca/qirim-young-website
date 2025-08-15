@@ -19,7 +19,7 @@ function App() {
   
   return (
     <Router>
-      <div className="min-h-screen bg-amber-50 font-crimean" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-amber-50 text-amber-900" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'} style={{fontFamily: "'e-Ukraine', system-ui, -apple-system, sans-serif"}}>
         {/* Critical above-the-fold content */}
         <Navbar />
         <main>
