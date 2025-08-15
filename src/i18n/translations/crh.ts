@@ -1,0 +1,99 @@
+export const crhTranslations = {
+  nav: {
+    home: "Baş Sayfa",
+    about: "Aqqında",
+    projects: "Loyihalar",
+    impact: "Tesir",
+    getInvolved: "Qatıl",
+    donate: "Destek",
+    volunteer: "Gönüllü",
+    transparency: "Açıqlıq",
+    news: "Haberler"
+  },
+  hero: {
+    title: "Qırımtatar Mirasını Dijital İnnovasyon ile Saqlaw",
+    subtitle: "Qırımtatar tiliniñ kelecegini çağdaş teknolojiya ile qurıp, medeni mirasımıznıñ dijital devürde yaşamasını temin etmekte.",
+    cta: "Misyonımızğa Destek",
+    learnMore: "Daha Çoq Ögren",
+    stats: {
+      language: "Til Saqlandı",
+      projects: "Faal Loyihalar", 
+      volunteers: "Dünya Gönüllüleri",
+      impact: "Etkilenen Yaşamlar"
+    }
+  },
+  about: {
+    title: "QIRI'M YOUNG Aqqında",
+    mission: "Misyon",
+    vision: "Vizyon",
+    values: "Qıymetler",
+    missionText: "Qırımtatar tilini innovatsion dijital çözümler ile saqlaw ve inkişaf ettirmek, medeni mirasımıznıñ gelecek nesillerge yaşamasını temin etmek.",
+    visionText: "Qırımtatar tiliniñ çağdaş dijital yaşantığa tam entegre olğan, dünya çapında cemaat üyelerine erişilebilir olğan bir dünya.",
+    valuesText: "İnnovasyon, Medeni Saqlaw, Cemaat, Açıqlıq, Mükemmellik"
+  },
+  projects: {
+    title: "Loyihalarımız",
+    subtitle: "Qırımtatar mirasını saqlaw içün innovatsion dijital çözümler",
+    nationalCorpus: {
+      title: "Milli Korpus",
+      description: "Dijital entegrasyonnıñ temeli olaraq hizmet etken şamil veritabanı"
+    },
+    googleTranslate: {
+      title: "Google Translate Entegrasyonu",
+      description: "Qırımtatar tilini Google Translate platformasına başarılı olaraq eklendi"
+    },
+    aiTools: {
+      title: "YZ Til Aletleri",
+      description: "Klavye, konuşma-metin ve YZ uygulamalarınıñ inkişafı"
+    },
+    education: {
+      title: "Eğitim Platforması",
+      description: "Çocuqlar içün BÜLBÜL multimedya platform"
+    }
+  },
+  impact: {
+    title: "Bizim Tesir",
+    subtitle: "Qırımtatar tilini dijital innovasyon ve cemaat işbirliği ile saqlaw ve inkişaf ettirmek misyonımıznıñ ölçülebilir neticeleri ve gerçek tesiri.",
+    metrics: "Tesir Ölçüleri",
+    achievements: "Anahtariy Başarılar",
+    testimonials: "Cemaat Şahadetnameleri",
+    research: "Araştırma Çıqtıları ve Yayınlar",
+    joinImpact: "Büyüyen Tesirimizge Qatılıñız"
+  },
+  getInvolved: {
+    title: "Qatılıñız",
+    subtitle: "Qırımtatar tilini dijital innovasyon ile saqlaw ve inkişaf ettirmek misyonımızğa qatılıñız. Beraber bu güzel tilniñ dijital devürde yaşamasını temin etebiliriz.",
+    volunteer: "Gönüllü İmkanları",
+    partnerships: "Ortaqlıq İmkanları",
+    support: "Misyonımızğa Destek Yolları",
+    ready: "Farq Yaratmağa Hazır mısıñız?"
+  },
+  transparency: {
+    title: "Şeffaflıq ve Hesap Verebilirlik",
+    subtitle: "Misyonımız, faaliyetlerimiz ve tesirimiz aqqında tam şeffaflığa inanırız. Burada mali raporlarımız, yönetim yapımız ve hesap verebilirlik tedbirlerimizi bulacaqsıñız.",
+    financial: "Mali Şeffaflıq",
+    governance: "Yönetim Yapısı",
+    metrics: "Hesap Verebilirlik Ölçüleri",
+    reports: "Raporlar ve Belgeler",
+    ethics: "Etik Taahhütlerimiz",
+    questions: "Şeffaflığımız Aqqında Sorularıñız mı Var?"
+  },
+  news: {
+    title: "Haberler ve Güncellemeler",
+    subtitle: "QIRI'M YOUNG'nıñ qırımtatar tilini dijital innovasyon ile saqlaw ve inkişaf ettirmek misyonından soñki inkişaflar, başarılar ve loyiha güncellemeleri.",
+    stayUpdated: "Güncel Qalıñız",
+    followProgress: "Qırımtatar tilini saqlaw içün dijital aletler yaratma yolculuğımızı takip ediñiz."
+  },
+  common: {
+    readMore: "Daha Çoq Oquñız",
+    learnMore: "Daha Çoq Ögren",
+    getStarted: "Başla",
+    contactUs: "Bizimle İletişim",
+    loading: "Yüklenmekte...",
+    viewProject: "Loyihağa Baq",
+    explore: "Keşfet",
+    download: "İndir",
+    available: "Mevcut",
+    comingSoon: "Yakında"
+  }
+}
