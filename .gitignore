@@ -10,9 +10,28 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-# Private assets
+# Private assets and sensitive data
 private/
 *.local
+*.env
+*.env.local
+*.env.production
+*.env.development
+.env*
+config/secrets.*
+credentials/
+.secret
+.ssh/
+.aws/
+.credentials
+
+# Development artifacts
+*.tmp
+*.bak
+*.cache
+.vite/
+tsconfig.tsbuildinfo
+.claude/
 
 # Editor directories and files
 .vscode/*
