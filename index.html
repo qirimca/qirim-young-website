@@ -12,13 +12,24 @@
       gtag('config', 'G-YKLWW2LSNE');
     </script>
     
-    <!-- Crowdin In-Context Localization -->
+    <!-- Crowdin In-Context Localization (only for pseudo-language 'ach') -->
     <script type="text/javascript">
+      // Only load Crowdin In-Context for pseudo-language
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentLang = urlParams.get('lang');
+      
+      if (currentLang === 'ach') {
         var _jipt = [];
         _jipt.push(['project', 'de495f6e792857bdac1d7433af340e9e']);
         _jipt.push(['domain', 'qirimyoung']);
+        
+        // Dynamically load Crowdin script only for pseudo-language
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '//cdn.crowdin.com/jipt/jipt.js';
+        document.head.appendChild(script);
+      }
     </script>
-    <script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
     
     <!-- Performance Optimizations -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
