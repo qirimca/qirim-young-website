@@ -25,6 +25,17 @@
   font-display: swap;
 }
 
+/* Font utilities */
+@layer utilities {
+  .font-crimean {
+    font-family: 'e-Ukraine', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-crimean-head {
+    font-family: 'e-Ukraine Head', 'e-Ukraine', system-ui, -apple-system, sans-serif;
+  }
+}
+
 /* Custom components for performance */
 @layer components {
   .btn-primary {

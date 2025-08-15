@@ -4,11 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- **Start development server**: `npm run dev` (opens automatically at localhost:5174)
-- **Build for production**: `npm run build` (TypeScript build + Vite build) ⚠️ Currently fails due to Tailwind CSS color utilities
+- **Start development server**: `npm run dev` (opens automatically at localhost:5176)
+- **Build for production**: `npm run build` (auto-generates sitemap + CSS + Vite build) ✅ 
+- **Generate sitemap**: `npm run sitemap` (creates sitemap.xml with 3 languages)
 - **Lint code**: `npm run lint` (ESLint with TypeScript rules)
 - **Preview production build**: `npm run preview` (serves on port 3000)
 - **Deploy to GitHub Pages**: `npm run deploy` (builds and deploys to gh-pages branch)
+- **SEO files**: `npm run seo` (updates sitemap.xml and robots.txt)
 
 ## Known Issues
 
@@ -36,14 +38,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - ✅ Replacing custom heritage colors with standard Tailwind colors
 - ✅ **FINAL SOLUTION**: Tailwind v4 syntax migration with @import and @reference directives
 
-### ✅ Current Development Status
+### ✅ Current Development Status (COMPLETE)
 - ✅ **Content**: All pages have authentic QIRI'M YOUNG content based on real projects
 - ✅ **Internationalization**: Three languages implemented (English, Ukrainian, Crimean Tatar)
 - ✅ **News Section**: Populated with real social media-style posts
-- ✅ **Build**: Production build working ✅ (preview at localhost:3000)
-- ✅ **SEO**: Comprehensive meta tags, Open Graph, Twitter cards, structured data
-- 🔄 **Images**: Need authentic images and Crimean Tatar ornek patterns
-- ✅ **Completion**: All major sections completed in all three languages
+- ✅ **Build**: Production build working ✅ with optimization and code splitting
+- ✅ **SEO**: Comprehensive meta tags, sitemap.xml, robots.txt, structured data
+- ✅ **Security**: All headers implemented, repository cleaned, sensitive data removed
+- ✅ **Performance**: PageSpeed optimized with compression, caching, code splitting
+- ✅ **Typography**: Fixed font-crimean utilities, proper e-Ukraine font loading
+- ✅ **Domain**: Corrected all URLs to qirimtatarca.org (not qirimca.org)
+- ✅ **Deployment**: Ready for young.qirimtatarca.org and GitHub Pages
 
 ## Architecture Overview
 
@@ -98,9 +103,24 @@ All content is based on real QIRI'M YOUNG research:
 - **TypeScript**: Strict mode with comprehensive linting rules
 - **Vite 7**: Modern build tooling with React 19 support
 
-### Deployment
+### Deployment & SEO
 
-The site deploys to GitHub Pages at `young.qirimtatarca.org` via the `deploy` script. Build artifacts go to `dist/` and are pushed to the `gh-pages` branch.
+**GitHub Pages (Automatic):**
+- URL: https://qirimca.github.io/qirim-young-website/
+- Automated via `.github/workflows/deploy.yml` on push to master
+- Build includes sitemap generation, security headers, and optimization
+
+**Custom Domain (FTP):**
+- Target: https://young.qirimtatarca.org
+- Instructions in `DEPLOYMENT.md`
+- All files from `dist/` including sitemap.xml, robots.txt, .htaccess
+
+**SEO Features:**
+- Dynamic sitemap.xml with 21 URLs (7 pages × 3 languages)
+- Multilingual hreflang support (crh, uk, en)
+- Security headers and performance optimization
+- Google/Bing webmaster tools ready
+- PageSpeed.web.dev optimized structure
 
 ## Cultural Context & Content Guidelines
 

@@ -37,10 +37,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-bold font-crimean-head">Projelerimiz</h4>
             <nav className="space-y-2">
-              <a href="https://wordle.qirimca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">Qırımtatar Wordle</a>
-              <a href="https://bulbul.qirimca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">BÜLBÜL Platform</a>
+              <a href="https://wordle.qirimtatarca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">Qırımtatar Wordle</a>
+              <a href="https://bulbul.qirimtatarca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">BÜLBÜL Platform</a>
               <a href="https://translate.google.com" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">Google Translate</a>
-              <a href="https://qirimca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">Ana Site</a>
+              <a href="https://qirimtatarca.org" className="block text-crimean-300 hover:text-yellow-600 transition-colors text-sm">Ana Site</a>
             </nav>
           </div>
 
@@ -48,17 +48,17 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-bold font-crimean-head">İletişim</h4>
             <div className="space-y-3">
-              <a href="mailto:info@qirimca.org" className="flex items-center space-x-2 text-crimean-300 hover:text-yellow-600 transition-colors">
+              <a href="mailto:info@qirimtatarca.org" className="flex items-center space-x-2 text-crimean-300 hover:text-yellow-600 transition-colors">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">info@qirimca.org</span>
+                <span className="text-sm">info@qirimtatarca.org</span>
               </a>
               <a href="https://github.com/qirimca" className="flex items-center space-x-2 text-crimean-300 hover:text-yellow-600 transition-colors">
                 <Github className="w-4 h-4" />
                 <span className="text-sm">GitHub</span>
               </a>
-              <a href="https://qirimca.org" className="flex items-center space-x-2 text-crimean-300 hover:text-yellow-600 transition-colors">
+              <a href="https://qirimtatarca.org" className="flex items-center space-x-2 text-crimean-300 hover:text-yellow-600 transition-colors">
                 <Globe className="w-4 h-4" />
-                <span className="text-sm">qirimca.org</span>
+                <span className="text-sm">qirimtatarca.org</span>
               </a>
             </div>
           </div>

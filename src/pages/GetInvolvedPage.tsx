@@ -18,7 +18,7 @@ export default function GetInvolvedPage() {
       description: 'Help analyze texts, create annotations, validate translations, and contribute to corpus expansion with your linguistic expertise.',
       skills: ['Crimean Tatar fluency', 'Linguistic analysis', 'Text processing', 'Research'],
       commitment: '5-10 hours/week',
-      contact: 'young@qirimca.org'
+      contact: 'young@qirimtatarca.org'
     },
     {
       icon: Globe,
@@ -26,7 +26,7 @@ export default function GetInvolvedPage() {
       description: 'Connect with Crimean Tatar communities worldwide, organize events, manage social media, and help spread awareness.',
       skills: ['Community building', 'Social media', 'Event planning', 'Communication'],
       commitment: 'Part-time flexible',
-      contact: 'young@qirimca.org'
+      contact: 'young@qirimtatarca.org'
     },
     {
       icon: Users,
@@ -34,7 +34,7 @@ export default function GetInvolvedPage() {
       description: 'Create learning materials, tutorials, documentation, and educational resources for language learners and researchers.',
       skills: ['Content creation', 'Educational design', 'Writing', 'Multilingual'],
       commitment: 'Project-based',
-      contact: 'young@qirimca.org'
+      contact: 'young@qirimtatarca.org'
     }
   ]
 
@@ -303,7 +303,7 @@ export default function GetInvolvedPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:young@qirimca.org"
+              href="mailto:young@qirimtatarca.org"
               className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
             >
               <Mail className="w-5 h-5" />
@@ -324,8 +324,8 @@ export default function GetInvolvedPage() {
           <div className="mt-8 text-text-secondary">
             <p className="mb-2">Follow our progress and join our community:</p>
             <div className="flex justify-center gap-4 text-sm">
-              <span>📧 young@qirimca.org</span>
-              <span>🌐 qirimca.org</span>
+              <span>📧 young@qirimtatarca.org</span>
+              <span>🌐 qirimtatarca.org</span>
               <span>💻 github.com/qirimca</span>
             </div>
           </div>

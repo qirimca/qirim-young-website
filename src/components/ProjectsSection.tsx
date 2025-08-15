@@ -33,7 +33,7 @@ const ProjectsSection = () => {
       impact: '5K+ Children',
       tech: ['React', 'WebGL', 'Audio API'],
       links: {
-        demo: 'https://bulbul.qirimca.org',
+        demo: 'https://bulbul.qirimtatarca.org',
         github: null
       },
       featured: true
@@ -51,7 +51,7 @@ const ProjectsSection = () => {
       impact: '25K+ Players',
       tech: ['React', 'TypeScript', 'PWA'],
       links: {
-        demo: 'https://wordle.qirimca.org',
+        demo: 'https://wordle.qirimtatarca.org',
         github: 'https://github.com/qirimca/react-wordle-crimean-tatar'
       },
       featured: false
@@ -296,7 +296,7 @@ const ProjectsSection = () => {
             Projelerimize katılın veya yeni fikirlerinizi bizimle paylaşın.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:info@qirimca.org" className="btn-primary">
+            <a href="mailto:info@qirimtatarca.org" className="btn-primary">
               İletişime Geçin
             </a>
             <a href="https://github.com/qirimca" target="_blank" rel="noopener noreferrer" className="btn-secondary">

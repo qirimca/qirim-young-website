@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://young.qirimca.org/sitemap.xml
+Sitemap: https://young.qirimtatarca.org/sitemap.xml
 
 # Additional sitemaps if needed
 # Sitemap: https://qirimca.github.io/qirim-young-website/sitemap.xml
