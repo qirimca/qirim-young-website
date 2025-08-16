@@ -1,8 +1,7 @@
-/* e-Ukraine Font Family - Optimized WOFF2 */
+/* e-Ukraine Font Family - WOFF2 Only for Modern Browsers (95.9% support) */
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-UltraLight.woff2') format('woff2'),
-       url('./e-Ukraine-UltraLight.otf') format('opentype');
+  src: url('./e-Ukraine-UltraLight.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -10,8 +9,7 @@
 
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-Thin.woff2') format('woff2'),
-       url('./e-Ukraine-Thin.otf') format('opentype');
+  src: url('./e-Ukraine-Thin.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -19,8 +17,7 @@
 
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-Light.woff2') format('woff2'),
-       url('./e-Ukraine-Light.otf') format('opentype');
+  src: url('./e-Ukraine-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -28,8 +25,7 @@
 
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-Regular.woff2') format('woff2'),
-       url('./e-Ukraine-Regular.otf') format('opentype');
+  src: url('./e-Ukraine-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -37,8 +33,7 @@
 
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-Medium.woff2') format('woff2'),
-       url('./e-Ukraine-Medium.otf') format('opentype');
+  src: url('./e-Ukraine-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -46,18 +41,16 @@
 
 @font-face {
   font-family: 'e-Ukraine';
-  src: url('./e-Ukraine-Bold.woff2') format('woff2'),
-       url('./e-Ukraine-Bold.otf') format('opentype');
+  src: url('./e-Ukraine-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* e-Ukraine Head Font Family - Optimized WOFF2 */
+/* e-Ukraine Head Font Family - WOFF2 Only for Modern Browsers */
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-UltraLight.woff2') format('woff2'),
-       url('./e-UkraineHead-UltraLight.otf') format('opentype');
+  src: url('./e-UkraineHead-UltraLight.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -65,8 +58,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-Thin.woff2') format('woff2'),
-       url('./e-UkraineHead-Thin.otf') format('opentype');
+  src: url('./e-UkraineHead-Thin.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -74,8 +66,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-Light.woff2') format('woff2'),
-       url('./e-UkraineHead-Light.otf') format('opentype');
+  src: url('./e-UkraineHead-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -83,8 +74,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-Regular.woff2') format('woff2'),
-       url('./e-UkraineHead-Regular.otf') format('opentype');
+  src: url('./e-UkraineHead-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -92,8 +82,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-Medium.woff2') format('woff2'),
-       url('./e-UkraineHead-Medium.otf') format('opentype');
+  src: url('./e-UkraineHead-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -101,8 +90,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head';
-  src: url('./e-UkraineHead-Bold.woff2') format('woff2'),
-       url('./e-UkraineHead-Bold.otf') format('opentype');
+  src: url('./e-UkraineHead-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -110,8 +98,7 @@
 
 @font-face {
   font-family: 'e-Ukraine Head LOGO';
-  src: url('./e-UkraineHead-LOGO.woff2') format('woff2'),
-       url('./e-UkraineHead-LOGO.otf') format('opentype');
+  src: url('./e-UkraineHead-LOGO.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run sitemap && npm run build:css && vite build && npm run build:cleanup",
-    "build:cleanup": "node -e \"const fs = require('fs'); const path = require('path'); const distFonts = path.join(__dirname, 'dist/fonts'); if (fs.existsSync(distFonts)) { fs.readdirSync(distFonts).filter(f => f.endsWith('.otf')).forEach(f => fs.unlinkSync(path.join(distFonts, f))); console.log('OTF fonts removed from dist'); }\"",
+    "build:cleanup": "node -e \"const fs = require('fs'); const path = require('path'); const distFonts = path.join(__dirname, 'dist/fonts'); if (fs.existsSync(distFonts)) { fs.readdirSync(distFonts).filter(f => f.endsWith('.otf')).forEach(f => fs.unlinkSync(path.join(distFonts, f))); console.log('Legacy OTF fonts removed - WOFF2 only for 95.9% browser support'); }\"",
     "build:css": "postcss ./src/tailwind.css -o ./public/style.css",
     "sitemap": "node scripts/generate-sitemap.js",
     "lint": "eslint .",
