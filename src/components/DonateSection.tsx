@@ -12,14 +12,14 @@ const DonateSection = () => {
     <section id="donate" className="py-24 bg-gradient-to-br from-yellow-600/5 to-crimean-100/50">
       <div className="container-width section-padding">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-yellow-600/10 px-4 py-2 rounded-full mb-6">
-            <Heart className="w-4 h-4 text-yellow-600" />
+          <div className="inline-flex items-center space-x-2 bg-accent-amber/10 px-4 py-2 rounded-full mb-6">
+            <Heart className="w-4 h-4 text-accent-gold" />
             <span className="text-sm font-medium text-crimean-700">Yardım Et</span>
           </div>
           
           <h2 className="text-4xl font-bold text-crimean-800 font-crimean-head mb-6">
             Medeniıetimizi Birlikte
-            <span className="block text-yellow-600">Yaşatalım</span>
+            <span className="block text-accent-gold">Yaşatalım</span>
           </h2>
           
           <p className="text-xl text-crimean-600 max-w-3xl mx-auto">
@@ -39,7 +39,7 @@ const DonateSection = () => {
                 {donationOptions.map((option, index) => (
                   <div key={index} className="flex items-center justify-between p-4 bg-crimean-50 rounded-lg hover:bg-crimean-100 transition-colors cursor-pointer">
                     <div>
-                      <div className="font-bold text-yellow-600">${option.amount}</div>
+                      <div className="font-bold text-accent-gold">${option.amount}</div>
                       <div className="text-sm text-crimean-600">{option.description}</div>
                     </div>
                     <CreditCard className="w-5 h-5 text-crimean-400" />
@@ -58,21 +58,21 @@ const DonateSection = () => {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <Gift className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                  <Gift className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-crimean-800">Gönüllü Olun</h4>
                     <p className="text-sm text-crimean-600">Projelerimizde aktif rol alın</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Banknote className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                  <Banknote className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-crimean-800">Kurumsal Destek</h4>
                     <p className="text-sm text-crimean-600">Şirketınız için sponsorluk fırsatları</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Heart className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+                  <Heart className="w-6 h-6 text-accent-gold flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-crimean-800">Sosyal Medyada Paylaşın</h4>
                     <p className="text-sm text-crimean-600">Misyonumuzu daha fazla kişiye ulaştırın</p>
@@ -93,15 +93,15 @@ const DonateSection = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-sm">
               <div>
-                <div className="text-2xl font-bold text-yellow-600">70%</div>
+                <div className="text-2xl font-bold text-accent-gold">70%</div>
                 <div className="text-crimean-600">Proje Geliştirme</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-yellow-600">20%</div>
+                <div className="text-2xl font-bold text-accent-gold">20%</div>
                 <div className="text-crimean-600">Teknik Altyapı</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-yellow-600">10%</div>
+                <div className="text-2xl font-bold text-accent-gold">10%</div>
                 <div className="text-crimean-600">İdari Giderler</div>
               </div>
             </div>

@@ -1,0 +1,140 @@
+{
+  "nav": {
+    "home": "[nav.home]",
+    "about": "[nav.about]",
+    "projects": "[nav.projects]",
+    "impact": "[nav.impact]", 
+    "getInvolved": "[nav.getInvolved]",
+    "donate": "[nav.donate]",
+    "volunteer": "[nav.volunteer]",
+    "transparency": "[nav.transparency]",
+    "news": "[nav.news]"
+  },
+  "hero": {
+    "title": "[hero.title]",
+    "subtitle": "[hero.subtitle]",
+    "cta": "[hero.cta]",
+    "learnMore": "[hero.learnMore]",
+    "stats": {
+      "language": "[hero.stats.language]",
+      "projects": "[hero.stats.projects]",
+      "volunteers": "[hero.stats.volunteers]",
+      "impact": "[hero.stats.impact]"
+    },
+    "description": "[hero.description]",
+    "mission": "[hero.mission]",
+    "digitalHeritage": "[hero.digitalHeritage]",
+    "communityDriven": "[hero.communityDriven]",
+    "openSource": "[hero.openSource]",
+    "academicPartnership": "[hero.academicPartnership]"
+  },
+  "about": {
+    "title": "[about.title]",
+    "subtitle": "[about.subtitle]",
+    "description": "[about.description]",
+    "mission": "[about.mission]",
+    "vision": "[about.vision]",
+    "values": "[about.values]",
+    "team": "[about.team]",
+    "history": "[about.history]",
+    "achievements": "[about.achievements]",
+    "partnerships": "[about.partnerships]",
+    "coreValues": {
+      "title": "[about.coreValues.title]",
+      "mission": {
+        "title": "[about.coreValues.mission.title]",
+        "description": "[about.coreValues.mission.description]"
+      },
+      "passion": {
+        "title": "[about.coreValues.passion.title]",
+        "description": "[about.coreValues.passion.description]"
+      },
+      "unity": {
+        "title": "[about.coreValues.unity.title]",
+        "description": "[about.coreValues.unity.description]"
+      },
+      "innovation": {
+        "title": "[about.coreValues.innovation.title]",
+        "description": "[about.coreValues.innovation.description]"
+      }
+    },
+    "stats": {
+      "users": "[about.stats.users]",
+      "projects": "[about.stats.projects]",
+      "description": "[about.stats.description]"
+    }
+  },
+  "projects": {
+    "title": "[projects.title]",
+    "subtitle": "[projects.subtitle]",
+    "googleTranslate": {
+      "title": "[projects.googleTranslate.title]",
+      "description": "[projects.googleTranslate.description]",
+      "status": "[projects.googleTranslate.status]",
+      "impact": "[projects.googleTranslate.impact]"
+    },
+    "bulbul": {
+      "title": "[projects.bulbul.title]",
+      "description": "[projects.bulbul.description]",
+      "status": "[projects.bulbul.status]",
+      "impact": "[projects.bulbul.impact]"
+    },
+    "speechRecognition": {
+      "title": "[projects.speechRecognition.title]",
+      "description": "[projects.speechRecognition.description]",
+      "status": "[projects.speechRecognition.status]",
+      "impact": "[projects.speechRecognition.impact]"
+    },
+    "wordle": {
+      "title": "[projects.wordle.title]",
+      "description": "[projects.wordle.description]",
+      "status": "[projects.wordle.status]",
+      "impact": "[projects.wordle.impact]"
+    },
+    "keyboards": {
+      "title": "[projects.keyboards.title]",
+      "description": "[projects.keyboards.description]",
+      "status": "[projects.keyboards.status]",
+      "impact": "[projects.keyboards.impact]"
+    },
+    "dictionary": {
+      "title": "[projects.dictionary.title]",
+      "description": "[projects.dictionary.description]",
+      "status": "[projects.dictionary.status]",
+      "impact": "[projects.dictionary.impact]"
+    }
+  },
+  "footer": {
+    "tagline": "[footer.tagline]",
+    "quickLinks": "[footer.quickLinks]",
+    "community": "[footer.community]",
+    "contact": "[footer.contact]",
+    "newsletter": "[footer.newsletter]",
+    "copyright": "[footer.copyright]",
+    "privacyPolicy": "[footer.privacyPolicy]",
+    "termsOfService": "[footer.termsOfService]"
+  },
+  "common": {
+    "learnMore": "[common.learnMore]",
+    "getStarted": "[common.getStarted]",
+    "contact": "[common.contact]",
+    "loading": "[common.loading]",
+    "error": "[common.error]",
+    "success": "[common.success]",
+    "close": "[common.close]",
+    "save": "[common.save]",
+    "cancel": "[common.cancel]",
+    "confirm": "[common.confirm]",
+    "delete": "[common.delete]",
+    "edit": "[common.edit]",
+    "add": "[common.add]",
+    "remove": "[common.remove]",
+    "submit": "[common.submit]",
+    "back": "[common.back]",
+    "next": "[common.next]",
+    "previous": "[common.previous]",
+    "finish": "[common.finish]",
+    "readMore": "[common.readMore]",
+    "showLess": "[common.showLess]"
+  }
+}

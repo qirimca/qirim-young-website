@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Organization */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-accent-amber rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl font-crimean-head">Q</span>
               </div>
               <div>
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center space-x-1 text-sm text-amber-200">
             <span>Made with</span>
-            <Heart className="w-4 h-4 text-yellow-600" />
+            <Heart className="w-4 h-4 text-accent-gold" />
             <span>for Crimean Tatar heritage</span>
           </div>
         </div>

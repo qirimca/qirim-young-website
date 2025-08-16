@@ -6,11 +6,13 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import ukTranslations from './locales/uk.json'
 import crhTranslations from './locales/crh.json'
 import enTranslations from './locales/en.json'
+import achTranslations from './locales/ach.json'
 
 const resources = {
   uk: { translation: ukTranslations },
   crh: { translation: crhTranslations },
-  en: { translation: enTranslations }
+  en: { translation: enTranslations },
+  ach: { translation: achTranslations } // Pseudo-language for Crowdin In-Context
 }
 
 i18n
@@ -24,7 +26,8 @@ i18n
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+      lookupQuerystring: 'lang',
       caches: ['localStorage']
     }
   })

@@ -15,7 +15,24 @@
     <!-- Crowdin Integration Scripts -->
     
     <!-- JS Proxy Integration for live translation sync -->
-    <style>.js-proxy-blur {filter: blur(5px);}</style>
+    <style>
+      .js-proxy-blur {filter: blur(5px);}
+      /* Hide ALL Crowdin UI elements - we use our own language switcher */
+      #proxy-translator-language-switcher,
+      .proxy-translator-language-switcher,
+      .proxy-translator-switcher,
+      [id*="proxy-translator"],
+      [class*="proxy-translator"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      /* Style Crowdin overlay elements to match our design */
+      .proxy-translator-overlay {
+        font-family: 'e-Ukraine', system-ui, sans-serif !important;
+      }
+    </style>
     <script src="https://proxy-translator.app.crowdin.net/assets/proxy-translator.js"></script>
     <script>
       window.proxyTranslator.init({
@@ -30,42 +47,108 @@
         defaultLanguage: "uk",
         defaultLanguageTitle: "Ukrainian",
         languageDetectType: "default",
-        poweredBy: true,
+        poweredBy: false,
+        hideLanguageSwitcher: true,
+        hideProxyTranslatorUi: true,
+        customLanguageSwitcher: true,
       });
     </script>
     
-    <!-- In-Context Localization (only for pseudo-language 'ach') -->
+    <!-- Crowdin In-Context Localization (Enterprise) -->
     <script type="text/javascript">
-      // Only load Crowdin In-Context for pseudo-language
+      // Check for In-Context activation
       const urlParams = new URLSearchParams(window.location.search);
       const currentLang = urlParams.get('lang');
+      const inContextMode = currentLang === 'ach' || window.location.search.includes('crowdin-in-context=1');
       
-      if (currentLang === 'ach') {
+      // Initialize Crowdin In-Context only when needed
+      if (inContextMode) {
+        // Initialize _jipt configuration for Crowdin Enterprise
         var _jipt = [];
+        
+        // Required: Project configuration
         _jipt.push(['project', 'de495f6e792857bdac1d7433af340e9e']);
         _jipt.push(['domain', 'qirimyoung']);
         
-        // Dynamically load Crowdin script only for pseudo-language
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = '//cdn.crowdin.com/jipt/jipt.js';
-        document.head.appendChild(script);
+        // Enterprise optimization features
+        _jipt.push(['preload_texts', true]);
+        _jipt.push(['touch_optimized', true]);
+        _jipt.push(['tag_only_visible_phrases', true]);
+        _jipt.push(['auto_height', true]);
+        _jipt.push(['start_type', 'automatic']);
+        
+        // Load Crowdin In-Context script
+        (function() {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.async = true;
+          script.src = 'https://cdn.crowdin.com/jipt/jipt.js';
+          var firstScript = document.getElementsByTagName('script')[0];
+          firstScript.parentNode.insertBefore(script, firstScript);
+        })();
       }
     </script>
     
     <!-- Performance Optimizations -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://distributions.crowdin.net">
+    <link rel="dns-prefetch" href="https://proxy-translator.app.crowdin.net">
+    <link rel="dns-prefetch" href="https://cdn.crowdin.com">
+    <link rel="dns-prefetch" href="https://qirimyoung.crowdin.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://distributions.crowdin.net" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="prefetch" href="/site.webmanifest">
+    <link rel="prefetch" href="/robots.txt">
+    <link rel="prefetch" href="/sitemap.xml">
     
-    <!-- Reduce Initial Blocking -->
-    <link rel="preload" href="/qirim-young-website/assets/react-vendor-CtPCxZU4.js" as="script" crossorigin>
-    <link rel="preload" href="/qirim-young-website/assets/index-DYgIQtOQ.css" as="style">
+    <!-- Reduce Initial Blocking - Dynamic script detection -->
+    <script>
+      // Preload critical JS and CSS based on actual build files
+      const preloadResources = () => {
+        // Find main JS bundle
+        const scripts = document.querySelectorAll('script[type="module"]');
+        const mainScript = Array.from(scripts).find(s => s.src && s.src.includes('/assets/'));
+        if (mainScript) {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'script';
+          link.href = mainScript.src;
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        }
+        
+        // Preload CSS
+        const styles = document.querySelectorAll('link[rel="stylesheet"]');
+        styles.forEach(style => {
+          if (style.href && style.href.includes('/assets/')) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'style';
+            link.href = style.href;
+            document.head.appendChild(link);
+          }
+        });
+      };
+      
+      // Run preload after DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', preloadResources);
+      } else {
+        preloadResources();
+      }
+    </script>
     
-    <!-- Critical Resource Hints -->
-    <link rel="preload" href="/fonts/e-Ukraine-Regular.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="/fonts/e-UkraineHead-Regular.otf" as="font" type="font/otf" crossorigin>
+    <!-- Critical Resource Hints - WOFF2 Optimized -->
+    <link rel="preload" href="/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/e-UkraineHead-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- Module Preload for ES modules -->
+    <link rel="modulepreload" href="/src/main.tsx">
+    <link rel="modulepreload" href="/src/App.tsx">
     
     <!-- Meta Information -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,9 +163,9 @@
     <meta name="google-site-verification" content="">
     <meta name="msvalidate.01" content="">
     
-    <!-- Security Headers -->
+    <!-- Security Headers with CSP for Crowdin and Analytics -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://proxy-translator.app.crowdin.net https://cdn.crowdin.com https://qirimyoung.crowdin.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://distributions.crowdin.net https://proxy-translator.app.crowdin.net https://qirimyoung.crowdin.com https://api.crowdin.com; style-src 'self' 'unsafe-inline' https://cdn.crowdin.com; frame-src https://qirimyoung.crowdin.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="color-scheme" content="light">
     
@@ -92,6 +175,10 @@
     <meta property="og:description" content="Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat">
     <meta property="og:url" content="https://young.qirimtatarca.org">
     <meta property="og:site_name" content="QIRI'M YOUNG">
+    <meta property="og:image" content="https://young.qirimtatarca.org/web-app-manifest-512x512.png">
+    <meta property="og:image:alt" content="QIRI'M YOUNG - Crimean Tatar Digital Heritage Organization">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
     <meta property="og:locale" content="crh_UA">
     <meta property="og:locale:alternate" content="uk_UA">
     <meta property="og:locale:alternate" content="en_US">
@@ -100,9 +187,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="QIRI'M YOUNG - Digital Heritage Preservation">
     <meta name="twitter:description" content="Preserving Crimean Tatar language and culture through digital innovation">
+    <meta name="twitter:image" content="https://young.qirimtatarca.org/web-app-manifest-512x512.png">
+    <meta name="twitter:image:alt" content="QIRI'M YOUNG Logo">
     
-    <!-- Icons and Manifest -->
+    <!-- Icons and Manifest - WebP Optimized -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/webp" sizes="96x96" href="/favicon-96x96.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="/favicon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="/favicon-16x16.webp">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -121,6 +213,12 @@
         line-height: 1.6;
         color: #311812;
         background-color: #fdf8f4;
+        /* Prevent FOUC */
+        visibility: hidden;
+      }
+      
+      body.loaded {
+        visibility: visible;
       }
       
       #root {
@@ -137,10 +235,11 @@
         color: #a05d32;
       }
       
-      /* Font loading optimization */
+      /* Font loading optimization - WOFF2 First */
       @font-face {
         font-family: 'e-Ukraine';
-        src: url('/fonts/e-Ukraine-Regular.otf') format('opentype');
+        src: url('/fonts/e-Ukraine-Regular.woff2') format('woff2'),
+             url('/fonts/e-Ukraine-Regular.otf') format('opentype');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -148,7 +247,8 @@
       
       @font-face {
         font-family: 'e-Ukraine Head';
-        src: url('/fonts/e-UkraineHead-Regular.otf') format('opentype');
+        src: url('/fonts/e-UkraineHead-Regular.woff2') format('woff2'),
+             url('/fonts/e-UkraineHead-Regular.otf') format('opentype');
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -159,35 +259,122 @@
         min-height: 100vh;
         position: relative;
       }
+      
+      /* Performance optimizations */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Reduce paint complexity */
+      .will-change {
+        will-change: transform;
+      }
+      
+      /* Optimize animations */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
     
     <!-- Structured Data for Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "NGO",
-      "name": "QIRI'M YOUNG",
-      "alternateName": "QIRIM YOUNG",
-      "description": "Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat",
-      "url": "https://young.qirimtatarca.org",
-      "logo": "https://young.qirimtatarca.org/logo.png",
-      "foundingLocation": {
-        "@type": "Place",
-        "name": "Ukraine"
-      },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Global"
-      },
-      "knowsAbout": [
-        "Crimean Tatar Language",
-        "Digital Heritage Preservation",
-        "Cultural Preservation",
-        "Language Technology",
-        "Youth Development"
-      ],
-      "sameAs": [
-        "https://qirimca.org"
+      "@graph": [
+        {
+          "@type": "NGO",
+          "@id": "https://young.qirimtatarca.org/#organization",
+          "name": "QIRI'M YOUNG",
+          "alternateName": "QIRIM YOUNG",
+          "description": "Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı içün çalışqan teşkilat",
+          "url": "https://young.qirimtatarca.org",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://young.qirimtatarca.org/logo.svg",
+            "width": "200",
+            "height": "200"
+          },
+          "image": "https://young.qirimtatarca.org/web-app-manifest-512x512.png",
+          "foundingLocation": {
+            "@type": "Place",
+            "name": "Ukraine",
+            "addressCountry": "UA"
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Global"
+          },
+          "knowsAbout": [
+            "Crimean Tatar Language",
+            "Digital Heritage Preservation",
+            "Cultural Preservation",
+            "Language Technology",
+            "Youth Development",
+            "Nonprofit Organization",
+            "Cultural Heritage"
+          ],
+          "sameAs": [
+            "https://qirimca.org"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "General Inquiries",
+            "availableLanguage": ["crh", "uk", "en"]
+          },
+          "mission": "Preserving and developing Crimean Tatar language and culture through digital technologies",
+          "nonprofitStatus": "Nonprofit"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://young.qirimtatarca.org/#website",
+          "url": "https://young.qirimtatarca.org",
+          "name": "QIRI'M YOUNG - Qırımtatar Medeniıetni Dijital Saqlaw",
+          "description": "Official website of QIRI'M YOUNG organization dedicated to preserving Crimean Tatar digital heritage",
+          "publisher": {
+            "@id": "https://young.qirimtatarca.org/#organization"
+          },
+          "inLanguage": ["crh", "uk", "en"],
+          "isAccessibleForFree": true,
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://young.qirimtatarca.org/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://young.qirimtatarca.org/#webpage",
+          "url": "https://young.qirimtatarca.org",
+          "name": "QIRI'M YOUNG - Homepage",
+          "isPartOf": {
+            "@id": "https://young.qirimtatarca.org/#website"
+          },
+          "about": {
+            "@id": "https://young.qirimtatarca.org/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://young.qirimtatarca.org/web-app-manifest-512x512.png"
+          },
+          "datePublished": "2024-01-01",
+          "dateModified": "2025-08-16",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://young.qirimtatarca.org"
+              }
+            ]
+          }
+        }
       ]
     }
     </script>
@@ -195,6 +382,75 @@
     <title>QIRI'M YOUNG - Qırımtatar Medeniıetni Dijital Saqlaw</title>
   </head>
   <body class="js-proxy-blur">
+    <!-- Build Info: v2.1.1 | Build: 2025-08-16T00:06:49+02:00 | Crowdin: enabled | Lang: react-i18next+crowdin+ach-pseudo -->
+    
+    <!-- Performance monitoring script -->
+    <script>
+      // Performance monitoring and FOUC prevention
+      (function() {
+        // Mark navigation start
+        window.perfStart = performance.now();
+        
+        // Prevent FOUC by showing body when fonts are loaded
+        document.fonts.ready.then(() => {
+          document.body.classList.add('loaded');
+        });
+        
+        // Fallback for old browsers
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+        }, 100);
+        
+        // Core Web Vitals tracking
+        window.addEventListener('load', () => {
+          // Track FCP
+          new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              if (entry.name === 'first-contentful-paint') {
+                console.log('FCP:', entry.startTime);
+                if (window.gtag) {
+                  gtag('event', 'timing_complete', {
+                    name: 'FCP',
+                    value: Math.round(entry.startTime)
+                  });
+                }
+              }
+            }
+          }).observe({entryTypes: ['paint']});
+          
+          // Track LCP
+          new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime);
+            if (window.gtag) {
+              gtag('event', 'timing_complete', {
+                name: 'LCP',
+                value: Math.round(lastEntry.startTime)
+              });
+            }
+          }).observe({entryTypes: ['largest-contentful-paint']});
+          
+          // Track CLS
+          let clsValue = 0;
+          new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              if (!entry.hadRecentInput) {
+                clsValue += entry.value;
+              }
+            }
+            console.log('CLS:', clsValue);
+            if (window.gtag) {
+              gtag('event', 'timing_complete', {
+                name: 'CLS',
+                value: Math.round(clsValue * 1000)
+              });
+            }
+          }).observe({entryTypes: ['layout-shift']});
+        });
+      })();
+    </script>
+    
     <div id="root">
       <div class="loading">
         <div>Yüklenе...</div>

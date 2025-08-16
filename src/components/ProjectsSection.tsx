@@ -116,7 +116,7 @@ const ProjectsSection = () => {
     switch (status) {
       case 'completed': return 'bg-green-600 text-white'
       case 'active': return 'bg-blue-600 text-white'
-      case 'development': return 'bg-yellow-600 text-white'
+      case 'development': return 'bg-accent-amber text-white'
       default: return 'bg-crimean-200 text-crimean-700'
     }
   }
@@ -155,7 +155,7 @@ const ProjectsSection = () => {
         {/* Featured Projects */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-crimean-800 font-crimean-head mb-8 flex items-center">
-            <div className="w-1 h-6 bg-yellow-600 rounded mr-3"></div>
+            <div className="w-1 h-6 bg-accent-amber rounded mr-3"></div>
             Öne Çıkan Projeler
           </h3>
           
@@ -173,7 +173,7 @@ const ProjectsSection = () => {
                         <h4 className="text-xl font-bold text-crimean-800 font-crimean-head">
                           {project.titleCrh}
                         </h4>
-                        <p className="text-sm text-yellow-600 font-medium">
+                        <p className="text-sm text-accent-gold font-medium">
                           {project.title}
                         </p>
                         <div className="flex items-center space-x-2">
@@ -196,7 +196,7 @@ const ProjectsSection = () => {
                     <div className="flex items-center justify-between">
                       <div className="text-sm">
                         <span className="font-medium text-crimean-800">Etki: </span>
-                        <span className="text-yellow-600 font-semibold">{project.impact}</span>
+                        <span className="text-accent-gold font-semibold">{project.impact}</span>
                       </div>
                       
                       <div className="flex space-x-2">
@@ -205,7 +205,7 @@ const ProjectsSection = () => {
                             href={project.links.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-600/90 transition-colors"
+                            className="p-2 bg-accent-amber text-white rounded-lg hover:bg-accent-amber/90 transition-colors"
                             aria-label="View demo"
                           >
                             <ExternalLink className="w-4 h-4" />
@@ -276,7 +276,7 @@ const ProjectsSection = () => {
                     <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(project.status)}`}>
                       {getStatusText(project.status)}
                     </span>
-                    <span className="text-xs text-yellow-600 font-semibold">
+                    <span className="text-xs text-accent-gold font-semibold">
                       {project.impact}
                     </span>
                   </div>

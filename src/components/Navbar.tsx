@@ -18,8 +18,19 @@ const Navbar = () => {
   }
 
   const changeLanguage = (lng: string) => {
+    // Update URL with lang parameter
+    const url = new URL(window.location.href)
+    url.searchParams.set('lang', lng)
+    window.history.pushState({}, '', url.toString())
+    
+    // Change i18n language
     i18n.changeLanguage(lng)
     setIsLangMenuOpen(false)
+    
+    // Trigger Crowdin proxy reload if available
+    if (window.proxyTranslator && window.proxyTranslator.reload) {
+      window.proxyTranslator.reload()
+    }
   }
 
   const navLinks = [
@@ -58,12 +69,12 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200 relative group ${
-                  location.pathname === link.href ? 'text-yellow-600' : ''
+                className={`text-amber-700 hover:text-accent-gold font-medium transition-colors duration-200 relative group ${
+                  location.pathname === link.href ? 'text-accent-gold' : ''
                 }`}
               >
                 <span className="block">{link.label}</span>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-600 transition-all duration-200 group-hover:w-full"></div>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-amber transition-all duration-200 group-hover:w-full"></div>
               </Link>
             ))}
             
@@ -71,7 +82,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={toggleLangMenu}
-                className="flex items-center space-x-1 text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+                className="flex items-center space-x-1 text-amber-700 hover:text-accent-gold font-medium transition-colors duration-200"
                 aria-label="Change language"
               >
                 <Globe className="w-4 h-4" />
@@ -85,7 +96,7 @@ const Navbar = () => {
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
                       className={`w-full px-4 py-2 text-left hover:bg-amber-50 transition-colors flex items-center space-x-3 ${
-                        i18n.language === lang.code ? 'bg-amber-50 text-yellow-600' : 'text-amber-700'
+                        i18n.language === lang.code ? 'bg-amber-50 text-accent-gold' : 'text-amber-700'
                       }`}
                     >
                       <span>{lang.flag}</span>
@@ -113,7 +124,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={toggleLangMenu}
-                className="flex items-center space-x-1 text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+                className="flex items-center space-x-1 text-amber-700 hover:text-accent-gold font-medium transition-colors duration-200"
                 aria-label="Change language"
               >
                 <Globe className="w-4 h-4" />
@@ -127,7 +138,7 @@ const Navbar = () => {
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
                       className={`w-full px-3 py-2 text-left hover:bg-amber-50 transition-colors flex items-center space-x-2 text-sm ${
-                        i18n.language === lang.code ? 'bg-amber-50 text-yellow-600' : 'text-amber-700'
+                        i18n.language === lang.code ? 'bg-amber-50 text-accent-gold' : 'text-amber-700'
                       }`}
                     >
                       <span>{lang.flag}</span>
@@ -140,7 +151,7 @@ const Navbar = () => {
             
             <button
               onClick={toggleMenu}
-              className="text-amber-700 hover:text-yellow-600 p-2"
+              className="text-amber-700 hover:text-accent-gold p-2"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
             >
@@ -158,8 +169,8 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`block text-amber-700 hover:text-yellow-600 font-medium transition-colors duration-200 py-2 ${
-                  location.pathname === link.href ? 'text-yellow-600' : ''
+                className={`block text-amber-700 hover:text-accent-gold font-medium transition-colors duration-200 py-2 ${
+                  location.pathname === link.href ? 'text-accent-gold' : ''
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
