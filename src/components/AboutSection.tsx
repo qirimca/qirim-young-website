@@ -1,34 +1,28 @@
 import { Target, Heart, Users, Globe2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const AboutSection = () => {
+  const { t } = useTranslation()
   const values = [
     {
       icon: Target,
-      title: 'Edaq',
-      titleEn: 'Mission',
-      description: 'Qırımtatar dilniñ ve medeniıetniñ dijital alemi sayesinde saqlanması ve inkişafı',
-      descriptionEn: 'Preserving and developing Crimean Tatar language and culture through digital innovation'
+      title: t('about.coreValues.mission.title'),
+      description: t('about.coreValues.mission.description')
     },
     {
       icon: Heart,
-      title: 'Sevgi',
-      titleEn: 'Passion',
-      description: 'Medeniıetimizniñ her bir teferruatına olan derin sevgi ve saygı',
-      descriptionEn: 'Deep love and respect for every aspect of our culture'
+      title: t('about.coreValues.passion.title'),
+      description: t('about.coreValues.passion.description')
     },
     {
       icon: Users,
-      title: 'Birlik',
-      titleEn: 'Unity',
-      description: 'Dünya çapında dağılmış qırımtatar yaşlarını birleştirme',
-      descriptionEn: 'Uniting Crimean Tatar youth scattered across the globe'
+      title: t('about.coreValues.unity.title'),
+      description: t('about.coreValues.unity.description')
     },
     {
       icon: Globe2,
-      title: 'İnnovasyon',
-      titleEn: 'Innovation',
-      description: 'Modern teknologiyalar ile eski medeniıetni birleştirme',
-      descriptionEn: 'Combining ancient culture with modern technologies'
+      title: t('about.coreValues.innovation.title'),
+      description: t('about.coreValues.innovation.description')
     }
   ]
 
@@ -38,19 +32,16 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="text-center space-y-6 mb-16">
           <div className="inline-flex items-center space-x-2 bg-crimean-100 px-4 py-2 rounded-full">
-            <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
-            <span className="text-sm font-medium text-crimean-700">Bizim Aqqında</span>
-            <span className="text-xs text-crimean-500">About Us</span>
+            <div className="w-2 h-2 bg-accent-amber rounded-full"></div>
+            <span className="text-sm font-medium text-crimean-700">{t('about.title')}</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-crimean-800 font-crimean-head">
-            Qırımtatar Medeniıetniñ
-            <span className="block text-yellow-600">Dijital Gelecegi</span>
+            {t('about.subtitle')}
           </h2>
           
           <p className="text-xl text-crimean-600 max-w-3xl mx-auto leading-relaxed">
-            QIRI'M YOUNG — bu yaş nesilin qürvetli teşkilatı olıp, qırımtatar dilini ve medeniıetini 
-            dijital alemde saqlaw ve inkişaf ettirüv maqsadında qurılğandır.
+            {t('about.description')}
           </p>
         </div>
 
@@ -83,19 +74,19 @@ const AboutSection = () => {
               <h4 className="text-lg font-semibold text-crimean-800 mb-3">Başarılarımız</h4>
               <ul className="space-y-2 text-crimean-600">
                 <li className="flex items-center space-x-2">
-                  <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-accent-amber rounded-full"></div>
                   <span>Europeana 2024 Dijital Miras Nominasyonu</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-accent-amber rounded-full"></div>
                   <span>Google Translate Qırımtatar Dil Entegrasyonu</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-accent-amber rounded-full"></div>
                   <span>BÜLBÜL Eğitim Platformu (0-5 yaş)</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-accent-amber rounded-full"></div>
                   <span>Apple Cihazları için Qırımtatar Klavyeler</span>
                 </li>
               </ul>
@@ -106,7 +97,7 @@ const AboutSection = () => {
           <div className="relative">
             <div className="aspect-square bg-gradient-to-br from-crimean-100 to-yellow-600/10 rounded-3xl p-8 border border-crimean-200">
               <div className="h-full flex flex-col justify-center items-center text-center space-y-6">
-                <div className="w-20 h-20 bg-yellow-600 rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 bg-accent-amber rounded-full flex items-center justify-center">
                   <Users className="w-10 h-10 text-white" />
                 </div>
                 <div className="space-y-2">
@@ -115,11 +106,11 @@ const AboutSection = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4 w-full">
                   <div className="text-center">
-                    <div className="text-xl font-bold text-yellow-600">50K+</div>
+                    <div className="text-xl font-bold text-accent-gold">50K+</div>
                     <div className="text-xs text-crimean-500">Ulaşılan Kişi</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-bold text-yellow-600">100+</div>
+                    <div className="text-xl font-bold text-accent-gold">100+</div>
                     <div className="text-xs text-crimean-500">Ortaklar</div>
                   </div>
                 </div>
@@ -150,7 +141,7 @@ const AboutSection = () => {
                     <h4 className="text-xl font-bold text-crimean-800 font-crimean-head">
                       {value.title}
                     </h4>
-                    <p className="text-sm text-yellow-600 font-medium">
+                    <p className="text-sm text-accent-gold font-medium">
                       {value.titleEn}
                     </p>
                     <p className="text-crimean-600 text-sm leading-relaxed">

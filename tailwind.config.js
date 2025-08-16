@@ -32,6 +32,11 @@ export default {
           'forest': '#059669',
           'sky': '#0284c7',
           'earth': '#92400e',
+        },
+        // Better contrast alternatives
+        'accent': {
+          'gold': '#b8860b', // Dark golden rod - better contrast
+          'amber': '#d97706', // Amber-600 - good contrast
         }
       },
       animation: {
