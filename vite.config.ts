@@ -44,8 +44,12 @@ export default defineConfig({
           if (id.includes('lucide-react') || id.includes('@heroicons')) {
             return 'icons'
           }
-          if (id.includes('@headlessui') || id.includes('framer-motion')) {
+          if (id.includes('@headlessui')) {
             return 'ui'
+          }
+          // Separate chunk for framer-motion to enable better tree shaking
+          if (id.includes('framer-motion')) {
+            return 'motion'
           }
           // i18n
           if (id.includes('i18next') || id.includes('react-i18next')) {
@@ -89,7 +93,8 @@ export default defineConfig({
       'lucide-react',
       'i18next',
       'react-i18next',
-      '@headlessui/react'
+      '@headlessui/react',
+      'framer-motion'
     ],
     // Force optimization of these dependencies
     force: true

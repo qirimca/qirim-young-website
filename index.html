@@ -164,7 +164,11 @@
     <meta name="msvalidate.01" content="">
     
     <!-- Security Headers with CSP for Crowdin and Analytics -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://proxy-translator.app.crowdin.net https://cdn.crowdin.com https://qirimyoung.crowdin.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://distributions.crowdin.net https://proxy-translator.app.crowdin.net https://qirimyoung.crowdin.com https://api.crowdin.com; style-src 'self' 'unsafe-inline' https://cdn.crowdin.com; frame-src https://qirimyoung.crowdin.com;">
+    <!-- Enhanced Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://proxy-translator.app.crowdin.net https://cdn.crowdin.com https://qirimyoung.crowdin.com https://distributions.crowdin.net; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://distributions.crowdin.net https://proxy-translator.app.crowdin.net https://qirimyoung.crowdin.com https://api.crowdin.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.crowdin.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://qirimyoung.crowdin.com; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script';">
+    <!-- Security Headers -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="color-scheme" content="light">
@@ -189,6 +193,22 @@
     <meta name="twitter:description" content="Preserving Crimean Tatar language and culture through digital innovation">
     <meta name="twitter:image" content="https://young.qirimtatarca.org/web-app-manifest-512x512.png">
     <meta name="twitter:image:alt" content="QIRI'M YOUNG Logo">
+    
+    <!-- Performance Resource Hints for 150ms render-blocking improvement -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://analytics.google.com">
+    <link rel="preconnect" href="https://qirimyoung.crowdin.com">
+    <link rel="preconnect" href="https://proxy-translator.app.crowdin.net">
+    <link rel="preconnect" href="https://cdn.crowdin.com">
+    <link rel="dns-prefetch" href="https://distributions.crowdin.net">
+    <link rel="dns-prefetch" href="https://api.crowdin.com">
+    
+    <!-- Preload critical fonts for faster LCP -->
+    <link rel="preload" href="/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/e-UkraineHead-Regular.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- Icons and Manifest - WebP Optimized -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -303,7 +323,11 @@
           "foundingLocation": {
             "@type": "Place",
             "name": "Ukraine",
-            "addressCountry": "UA"
+            "addressCountry": {
+              "@type": "Country",
+              "name": "Ukraine",
+              "identifier": "UA"
+            }
           },
           "areaServed": {
             "@type": "Place",
@@ -326,7 +350,8 @@
             "contactType": "General Inquiries",
             "availableLanguage": ["crh", "uk", "en"]
           },
-          "mission": "Preserving and developing Crimean Tatar language and culture through digital technologies",
+          "description": "Preserving and developing Crimean Tatar language and culture through digital technologies",
+          "slogan": "Qırımtatar Medeniıetni Dijital Saqlaw",
           "nonprofitStatus": "Nonprofit"
         },
         {
@@ -342,7 +367,10 @@
           "isAccessibleForFree": true,
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://young.qirimtatarca.org/?s={search_term_string}",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://young.qirimtatarca.org/?s={search_term_string}"
+            },
             "query-input": "required name=search_term_string"
           }
         },
