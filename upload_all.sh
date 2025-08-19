@@ -2,7 +2,14 @@
 
 echo "🚀 Uploading all optimized files to young.qirimtatarca.org..."
 
-BASE_URL="https://qirimtatarca:LEt%40%299%7Dg%5E2%2Fhg%3BGB@webdisk.qirimtatarca.org:2078/public_html/young"
+if [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
+    echo "❌ Error: FTP_USER and FTP_PASSWORD environment variables are not set."
+    echo "Usage: export FTP_USER=\"your_username\""
+    echo "       export FTP_PASSWORD=\"your_password\""
+    exit 1
+fi
+
+BASE_URL="https://"$FTP_USER":"$FTP_PASSWORD"@webdisk.qirimtatarca.org:2078/public_html/young"
 SUCCESS_COUNT=0
 TOTAL_COUNT=0
 
