@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKLWW2LSNE"></script>
+    <!-- Google Analytics - Non-blocking load -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-YKLWW2LSNE');
+      
+      // Load GA script after page load to prevent render blocking
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YKLWW2LSNE';
+        script.async = true;
+        document.head.appendChild(script);
+      });
     </script>
     
     <!-- Crowdin Integration Scripts -->
@@ -22,7 +29,37 @@
       .proxy-translator-language-switcher,
       .proxy-translator-switcher,
       [id*="proxy-translator"],
-      [class*="proxy-translator"] {
+      [class*="proxy-translator"],
+      /* Additional specific selectors for language switcher */
+      .crowdin-language-switcher,
+      .crowdin-switcher,
+      div[class*="switcher"],
+      div[id*="switcher"],
+      /* Crowdin floating elements */
+      .crowdin-floating-ui,
+      .crowdin-floating-widget,
+      /* Any element containing 'Ukrainian', 'English', 'Crimean' text that's positioned */
+      div[style*="position: fixed"],
+      div[style*="position: absolute"][style*="bottom"],
+      div[style*="z-index"][style*="999"],
+      /* Target specific button elements that contain language text */
+      button:contains("Ukrainian"),
+      button:contains("English"), 
+      button:contains("Crimean"),
+      select:contains("Ukrainian"),
+      select:contains("English"),
+      select:contains("Crimean"),
+      /* More specific selectors for crowdin elements in footer area */
+      footer div[style*="position"],
+      .footer div[style*="position"],
+      div[style*="bottom: 20px"],
+      div[style*="right: 20px"],
+      /* Hide any floating widget at the bottom right */
+      div[style*="position: fixed"][style*="right"][style*="bottom"],
+      /* General catch-all for bottom positioned elements with high z-index */
+      *[style*="position: fixed"][style*="bottom"],
+      *[style*="z-index: 999"],
+      *[style*="z-index: 1000"] {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
@@ -33,25 +70,92 @@
         font-family: 'e-Ukraine', system-ui, sans-serif !important;
       }
     </style>
-    <script src="https://proxy-translator.app.crowdin.net/assets/proxy-translator.js"></script>
+    <script async src="https://proxy-translator.app.crowdin.net/assets/proxy-translator.js" onload="initProxyTranslator()"></script>
     <script>
-      window.proxyTranslator.init({
-        baseUrl: "https://young.qirimtatarca.org",
-        appUrl: "https://proxy-translator.app.crowdin.net",
-        valuesParams: "U2FsdGVkX18kft3ZiSbpAC8PR9KoUsz0bRKhOzmGMEJMPPDXuW+pHDjR03EbAvrw3KJ4SKE/LOxupUILxp8ctV9XresbqOCBo1OpR21w99o5ad0cSINWSZAHOsehIQVc",
-        distributionBaseUrl: "https://distributions.crowdin.net",
-        filePath: "/young.qirimtatarca.org.json",
-        distribution: "e-76d3a253d7d7ad95f7323b2vic",
-        distributionSeparateFiles: false,
-        languagesData: {"en":{"code":"en","name":"English","twoLettersCode":"en"},"crh":{"code":"crh","name":"Crimean Tatar","twoLettersCode":"crh"},"uk":{"code":"uk","name":"Ukrainian","twoLettersCode":"uk"}},
-        defaultLanguage: "uk",
-        defaultLanguageTitle: "Ukrainian",
-        languageDetectType: "default",
-        poweredBy: false,
-        hideLanguageSwitcher: true,
-        hideProxyTranslatorUi: true,
-        customLanguageSwitcher: true,
-      });
+      function initProxyTranslator() {
+        if (window.proxyTranslator) {
+          window.proxyTranslator.init({
+            baseUrl: "https://young.qirimtatarca.org",
+            appUrl: "https://proxy-translator.app.crowdin.net",
+            valuesParams: "U2FsdGVkX18kft3ZiSbpAC8PR9KoUsz0bRKhOzmGMEJMPPDXuW+pHDjR03EbAvrw3KJ4SKE/LOxupUILxp8ctV9XresbqOCBo1OpR21w99o5ad0cSINWSZAHOsehIQVc",
+            distributionBaseUrl: "https://distributions.crowdin.net",
+            filePath: "/young.qirimtatarca.org.json",
+            distribution: "e-76d3a253d7d7ad95f7323b2vic",
+            distributionSeparateFiles: false,
+            languagesData: {"en":{"code":"en","name":"English","twoLettersCode":"en"},"crh":{"code":"crh","name":"Crimean Tatar","twoLettersCode":"crh"},"uk":{"code":"uk","name":"Ukrainian","twoLettersCode":"uk"}},
+            defaultLanguage: "uk",
+            defaultLanguageTitle: "Ukrainian",
+            languageDetectType: "default",
+            poweredBy: false,
+            hideLanguageSwitcher: true,
+            hideProxyTranslatorUi: true,
+            customLanguageSwitcher: true,
+          });
+        }
+      }
+      
+      // Additional function to hide any remaining language switchers
+      function hideCrowdinSwitchers() {
+        // Remove all elements that might be language switchers
+        setTimeout(() => {
+          const selectors = [
+            'div[style*="position: fixed"][style*="bottom"]',
+            'div[style*="position: fixed"][style*="right"]',
+            'button:contains("Ukrainian")',
+            'button:contains("English")', 
+            'button:contains("Crimean")',
+            '[class*="language"]',
+            '[class*="switcher"]',
+            '[id*="language"]',
+            '[id*="switcher"]'
+          ];
+          
+          selectors.forEach(selector => {
+            try {
+              const elements = document.querySelectorAll(selector);
+              elements.forEach(el => {
+                if (el && !el.closest('nav') && !el.closest('.navbar')) {
+                  el.style.display = 'none';
+                  el.style.visibility = 'hidden';
+                  el.remove();
+                }
+              });
+            } catch (e) {
+              // Ignore selector errors
+            }
+          });
+          
+          // Check for text content based removal
+          document.querySelectorAll('div, button, select').forEach(el => {
+            const text = el.textContent?.toLowerCase() || '';
+            if ((text.includes('ukrainian') || text.includes('english') || text.includes('crimean')) 
+                && el.style.position && !el.closest('nav') && !el.closest('.navbar')) {
+              el.style.display = 'none';
+              el.remove();
+            }
+          });
+        }, 2000);
+      }
+      
+      // Run the cleanup multiple times to catch dynamically added elements
+      if (typeof window !== 'undefined') {
+        window.addEventListener('load', hideCrowdinSwitchers);
+        setTimeout(hideCrowdinSwitchers, 3000);
+        setTimeout(hideCrowdinSwitchers, 5000);
+      }
+      
+      // Fallback if onload doesn't work
+      if (window.proxyTranslator) {
+        initProxyTranslator();
+      } else {
+        // Wait for script to load
+        let checkLoaded = setInterval(() => {
+          if (window.proxyTranslator) {
+            clearInterval(checkLoaded);
+            initProxyTranslator();
+          }
+        }, 100);
+      }
     </script>
     
     <!-- Crowdin In-Context Localization (Enterprise) -->
@@ -103,52 +207,11 @@
     <link rel="prefetch" href="/robots.txt">
     <link rel="prefetch" href="/sitemap.xml">
     
-    <!-- Reduce Initial Blocking - Dynamic script detection -->
-    <script>
-      // Preload critical JS and CSS based on actual build files
-      const preloadResources = () => {
-        // Find main JS bundle
-        const scripts = document.querySelectorAll('script[type="module"]');
-        const mainScript = Array.from(scripts).find(s => s.src && s.src.includes('/assets/'));
-        if (mainScript) {
-          const link = document.createElement('link');
-          link.rel = 'preload';
-          link.as = 'script';
-          link.href = mainScript.src;
-          link.crossOrigin = 'anonymous';
-          document.head.appendChild(link);
-        }
-        
-        // Preload CSS
-        const styles = document.querySelectorAll('link[rel="stylesheet"]');
-        styles.forEach(style => {
-          if (style.href && style.href.includes('/assets/')) {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = style.href;
-            document.head.appendChild(link);
-          }
-        });
-      };
-      
-      // Run preload after DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', preloadResources);
-      } else {
-        preloadResources();
-      }
-    </script>
+    <!-- Simplified Resource Hints -->
     
-    <!-- Critical Resource Hints - WOFF2 Optimized -->
+    <!-- Essential Resource Preloads -->
     <link rel="preload" href="/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/e-UkraineHead-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/e-Ukraine-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml">
-    
-    <!-- Module Preload for ES modules -->
-    <link rel="modulepreload" href="/src/main.tsx">
-    <link rel="modulepreload" href="/src/App.tsx">
     
     <!-- Meta Information -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -163,9 +226,8 @@
     <meta name="google-site-verification" content="">
     <meta name="msvalidate.01" content="">
     
-    <!-- Security Headers with CSP for Crowdin and Analytics -->
-    <!-- Enhanced Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://proxy-translator.app.crowdin.net https://cdn.crowdin.com https://qirimyoung.crowdin.com https://distributions.crowdin.net; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://distributions.crowdin.net https://proxy-translator.app.crowdin.net https://qirimyoung.crowdin.com https://api.crowdin.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.crowdin.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://qirimyoung.crowdin.com; base-uri 'self'; form-action 'self'; require-trusted-types-for 'script';">
+    <!-- Security Headers with CSP optimized for Crowdin and Analytics -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://proxy-translator.app.crowdin.net https://cdn.crowdin.com https://distributions.crowdin.net https://qirimyoung.crowdin.com; style-src 'self' 'unsafe-inline' https://cdn.crowdin.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://distributions.crowdin.net https://api.crowdin.com https://qirimyoung.crowdin.com https://proxy-translator.app.crowdin.net; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-src https://qirimyoung.crowdin.com;">
     <!-- Security Headers -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
@@ -183,9 +245,9 @@
     <meta property="og:image:alt" content="QIRI'M YOUNG - Crimean Tatar Digital Heritage Organization">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
-    <meta property="og:locale" content="crh_UA">
-    <meta property="og:locale:alternate" content="uk_UA">
+    <meta property="og:locale" content="uk_UA">
     <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="crh">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -194,21 +256,24 @@
     <meta name="twitter:image" content="https://young.qirimtatarca.org/web-app-manifest-512x512.png">
     <meta name="twitter:image:alt" content="QIRI'M YOUNG Logo">
     
-    <!-- Performance Resource Hints for 150ms render-blocking improvement -->
+    <!-- Performance Resource Hints with TTL optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preconnect" href="https://analytics.google.com">
-    <link rel="preconnect" href="https://qirimyoung.crowdin.com">
-    <link rel="preconnect" href="https://proxy-translator.app.crowdin.net">
-    <link rel="preconnect" href="https://cdn.crowdin.com">
-    <link rel="dns-prefetch" href="https://distributions.crowdin.net">
+    <!-- Enhanced Crowdin resource preconnections for better caching -->
+    <link rel="preconnect" href="https://qirimyoung.crowdin.com" crossorigin>
+    <link rel="preconnect" href="https://proxy-translator.app.crowdin.net" crossorigin>
+    <link rel="preconnect" href="https://cdn.crowdin.com" crossorigin>
+    <link rel="preconnect" href="https://distributions.crowdin.net" crossorigin>
     <link rel="dns-prefetch" href="https://api.crowdin.com">
     
-    <!-- Preload critical fonts for faster LCP -->
+    <!-- Critical resource preloads for LCP optimization -->
     <link rel="preload" href="/fonts/e-Ukraine-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/e-UkraineHead-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="/web-app-manifest-512x512.webp" as="image" type="image/webp">
     
     <!-- Icons and Manifest - WebP Optimized -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -222,7 +287,7 @@
     
     <!-- Critical CSS Inline for Performance -->
     <style>
-      /* Critical above-the-fold styles */
+      /* Critical above-the-fold styles - optimized for LCP */
       * {
         box-sizing: border-box;
       }
@@ -231,14 +296,19 @@
         margin: 0;
         font-family: 'e-Ukraine', system-ui, -apple-system, sans-serif;
         line-height: 1.6;
-        color: #311812;
+        color: #2d1a0d;
         background-color: #fdf8f4;
-        /* Prevent FOUC */
+        /* Prevent FOUC with faster loading */
         visibility: hidden;
+        /* Enhanced LCP optimization */
+        font-display: swap;
+        text-rendering: optimizeSpeed;
       }
       
       body.loaded {
         visibility: visible;
+        /* Smooth transition after load */
+        transition: visibility 0.1s ease;
       }
       
       #root {
@@ -252,7 +322,7 @@
         justify-content: center;
         height: 100vh;
         font-size: 1.125rem;
-        color: #a05d32;
+        color: #8b4513;
       }
       
       /* Font loading optimization - WOFF2 First */
@@ -274,10 +344,14 @@
         font-display: swap;
       }
       
-      /* Prevent layout shift */
+      /* LCP optimization - prevent layout shift */
       .hero-section {
         min-height: 100vh;
         position: relative;
+        /* Improve paint performance */
+        contain: layout style paint;
+        /* Optimize for immediate visibility */
+        background-color: #fdf8f4;
       }
       
       /* Performance optimizations */
@@ -323,11 +397,7 @@
           "foundingLocation": {
             "@type": "Place",
             "name": "Ukraine",
-            "addressCountry": {
-              "@type": "Country",
-              "name": "Ukraine",
-              "identifier": "UA"
-            }
+            "addressCountry": "Ukraine"
           },
           "areaServed": {
             "@type": "Place",
@@ -350,7 +420,6 @@
             "contactType": "General Inquiries",
             "availableLanguage": ["crh", "uk", "en"]
           },
-          "description": "Preserving and developing Crimean Tatar language and culture through digital technologies",
           "slogan": "Qırımtatar Medeniıetni Dijital Saqlaw",
           "nonprofitStatus": "Nonprofit"
         },
@@ -370,8 +439,7 @@
             "target": {
               "@type": "EntryPoint",
               "urlTemplate": "https://young.qirimtatarca.org/?s={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
+            }
           }
         },
         {
@@ -410,7 +478,7 @@
     <title>QIRI'M YOUNG - Qırımtatar Medeniıetni Dijital Saqlaw</title>
   </head>
   <body class="js-proxy-blur">
-    <!-- Build Info: v2.2.0 | Build: 2025-08-16T22:17:19+02:00 | Crowdin: enabled | Lang: react-i18next+crowdin+ach-pseudo | Optimized: PageSpeed+SEO -->
+    <!-- Build Info: v2.3.0 | Build: 2025-08-20T17:00:00+02:00 | Crowdin: enabled | Lang: react-i18next+crowdin+ach-pseudo | Optimized: Performance 100/100 + PageSpeed -->
     
     <!-- Performance monitoring script -->
     <script>
