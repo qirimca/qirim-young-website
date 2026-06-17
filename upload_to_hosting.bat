@@ -42,11 +42,16 @@ echo Uploading optimized files to hosting...
 echo WebDAV URL: %WEBDAV_URL%
 
 rem --- Store credentials in Windows Credential Manager so that
-rem     the password is never passed as a command-line argument
+rem     the password is never passed as a command-line argument to net use
 rem     (which could be visible in process listings or logs).
-rem     The credential is removed again after the transfer.
+rem     Note: cmdkey itself still receives /pass: on the command line, which
+rem     is a limitation of batch-file automation; use an interactive session
+rem     or a secrets manager if that exposure is unacceptable.
+rem     The credential entry is removed again after the transfer.
+rem
+rem     Extract just the hostname (strip scheme, port, and path).
 for /f "tokens=2 delims=/" %%H in ("%WEBDAV_URL%") do set "_WEBDAV_HOST=%%H"
-set "_WEBDAV_HOST=%_WEBDAV_HOST::2078=%"
+for /f "tokens=1 delims=:" %%H in ("%_WEBDAV_HOST%") do set "_WEBDAV_HOST=%%H"
 cmdkey /add:"%_WEBDAV_HOST%" /user:"%FTP_USER%" /pass:"%FTP_PASSWORD%" >nul 2>&1
 
 rem --- Map WebDAV drive using stored credential --------------
