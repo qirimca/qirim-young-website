@@ -40,14 +40,21 @@ if "%WEBDAV_URL%"=="" (
 
 echo Uploading optimized files to hosting...
 echo WebDAV URL: %WEBDAV_URL%
-echo User:       %FTP_USER%
-echo Password:   ********
 
-rem --- Map WebDAV drive (password not echoed) ------------
-net use W: "%WEBDAV_URL%" /user:"%FTP_USER%" "%FTP_PASSWORD%" >nul 2>&1
+rem --- Store credentials in Windows Credential Manager so that
+rem     the password is never passed as a command-line argument
+rem     (which could be visible in process listings or logs).
+rem     The credential is removed again after the transfer.
+for /f "tokens=2 delims=/" %%H in ("%WEBDAV_URL%") do set "_WEBDAV_HOST=%%H"
+set "_WEBDAV_HOST=%_WEBDAV_HOST::2078=%"
+cmdkey /add:"%_WEBDAV_HOST%" /user:"%FTP_USER%" /pass:"%FTP_PASSWORD%" >nul 2>&1
+
+rem --- Map WebDAV drive using stored credential --------------
+net use W: "%WEBDAV_URL%" /persistent:no >nul 2>&1
 if errorlevel 1 (
     echo ERROR: Failed to connect to WebDAV at %WEBDAV_URL%.
     echo Check that FTP_USER and FTP_PASSWORD are correct.
+    cmdkey /delete:"%_WEBDAV_HOST%" >nul 2>&1
     exit /b 1
 )
 
@@ -55,8 +62,9 @@ rem --- Copy files; capture exit code for cleanup ---------
 robocopy dist\ W:\ /E /Z /R:3 /W:1
 set ROBOCOPY_EXIT=%errorlevel%
 
-rem --- Always unmap the drive ----------------------------
+rem --- Always unmap the drive and remove stored credential --
 net use W: /delete >nul 2>&1
+cmdkey /delete:"%_WEBDAV_HOST%" >nul 2>&1
 
 rem --- Evaluate result (robocopy exit codes 0-7 = success)
 if %ROBOCOPY_EXIT% leq 7 (

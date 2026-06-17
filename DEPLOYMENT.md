@@ -66,8 +66,18 @@ REM set WEBDAV_URL=https://webdisk.qirimtatarca.org:2078/public_html/young
 upload_to_hosting.bat
 ```
 
-> **Tip:** Use a `.env` file that is listed in `.gitignore`, or your OS credential
-> manager, to avoid re-typing credentials every session.
+> **Tip (Windows):** Batch files do not natively read `.env` files.
+> Create a small helper `set-env.bat` (listed in `.gitignore`) that contains
+> only `set` commands, then call it before running the upload script:
+> ```bat
+> REM set-env.bat  — DO NOT commit this file
+> set FTP_USER=your_cpanel_username
+> set FTP_PASSWORD=your_cpanel_password
+> ```
+> Then run: `call set-env.bat && upload_to_hosting.bat`
+
+> **Tip (Linux/macOS):** You can use a `.env` file with a tool such as
+> `direnv` or simply `source .env` before running `upload_all.sh`.
 
 #### GitHub Actions secrets
 
