@@ -2,7 +2,9 @@
 
 **Qırımtatar Medeniıetni Dijital Saqlaw** | *Crimean Tatar Digital Heritage Preservation*
 
-🌐 **Live Site**: [young.qirimca.org](https://young.qirimca.org)
+🌐 **Live Sites**:
+- [young.qirimca.org](https://young.qirimca.org)
+- [young.qirimtatarca.org](https://young.qirimtatarca.org)
 
 ## Aqqında | About
 
@@ -15,7 +17,7 @@ This is the official website for QIRI'M YOUNG, an organization dedicated to pres
 - **Frontend**: React 19, TypeScript, Tailwind CSS v4
 - **Build Tool**: Vite 7  
 - **Performance**: Optimized for PageSpeed Insights
-- **Deployment**: GitHub Pages
+- **Deployment**: GitHub Pages + cPanel WebDAV
 
 ## Development
 
