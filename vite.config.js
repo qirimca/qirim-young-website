@@ -11,13 +11,22 @@ export default defineConfig({
     minify: 'terser',
     rollupOptions: {
       output: {
-        // Manual chunks for better caching
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'router': ['react-router-dom'],
-          'i18n': ['react-i18next', 'i18next', 'i18next-browser-languagedetector'],
-          'icons': ['lucide-react'],
-          'motion': ['framer-motion']
+        manualChunks(id) {
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'react-vendor';
+          }
+          if (id.includes('react-router-dom')) {
+            return 'router';
+          }
+          if (id.includes('react-i18next') || id.includes('i18next') || id.includes('i18next-browser-languagedetector')) {
+            return 'i18n';
+          }
+          if (id.includes('lucide-react')) {
+            return 'icons';
+          }
+          if (id.includes('framer-motion')) {
+            return 'motion';
+          }
         }
       }
     },

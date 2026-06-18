@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.12 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.1 | MIT License | https://tailwindcss.com */
 @layer properties;
 .invisible {
   visibility: hidden;
@@ -13,7 +13,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border-width: 0;
 }
@@ -33,7 +33,7 @@
   position: sticky;
 }
 .left-1\/2 {
-  left: calc(1/2 * 100%);
+  left: calc(1 / 2 * 100%);
 }
 .z-10 {
   z-index: 10;
@@ -78,10 +78,10 @@
   min-height: 100vh;
 }
 .w-2\/12 {
-  width: calc(2/12 * 100%);
+  width: calc(2 / 12 * 100%);
 }
 .w-5\/12 {
-  width: calc(5/12 * 100%);
+  width: calc(5 / 12 * 100%);
 }
 .w-full {
   width: 100%;
@@ -201,7 +201,7 @@
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
 }
 .transition {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
