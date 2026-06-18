@@ -26,6 +26,7 @@
     "sitemap": "node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "validate:i18n": "node scripts/validate-i18n-locales.mjs",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "seo": "npm run sitemap && echo 'SEO files updated: sitemap.xml, robots.txt'"
