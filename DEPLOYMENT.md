@@ -30,6 +30,14 @@ All files from the `dist/` directory need to be uploaded to the web server root:
 - `fonts/` - Complete font directory with e-Ukraine fonts
 - `logo.svg` - QIRI'M YOUNG logo
 
+### GitHub Secrets Configuration
+
+For secure deployments (automated or local), do not hardcode passwords. Instead, configure the following credentials as environment variables or GitHub Secrets:
+
+- `FTP_USER`: The FTP/WebDAV username for the hosting account (e.g., `qirimtatarca`).
+- `FTP_PASSWORD`: The password for the FTP/WebDAV hosting account.
+- `WEBDAV_URL`: The WebDAV endpoint URL (e.g., `https://webdisk.qirimtatarca.org:2078/public_html/young`).
+
 ### FTP Configuration for young.qirimtatarca.org
 
 1. **cPanel Subdomain Setup**:
