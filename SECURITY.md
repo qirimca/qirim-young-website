@@ -2,13 +2,23 @@
 
 ## Reporting a Vulnerability
 
-We take the security of our project seriously. If you find a security vulnerability, please do not open a public issue. Instead, report it privately.
+If you discover a security vulnerability in this project, please report it
+responsibly by emailing **[young@qirimca.org](mailto:young@qirimca.org)**.
 
-Please report security issues by contacting us at:
-- Email: young@qirimca.org
+**Please do not open a public GitHub issue or disclose the vulnerability
+publicly before we have had a chance to coordinate a fix.**
 
-We will acknowledge receipt of your report within 48 hours and provide a detailed response containing the steps we plan to take to mitigate the vulnerability, along with an estimated timeline for a resolution.
+We will acknowledge your report within a reasonable time, work with you to
+understand the issue, and keep you informed as we address it.
 
 ## Supported Versions
 
-Only the latest version of the website on the main branch is currently supported with security updates.
+Security fixes are applied to the **current default branch** unless otherwise
+stated. Older tags and branches are not actively maintained.
+
+## Scope
+
+This policy applies to the QIRI'M YOUNG website source code hosted in this
+repository. If you find an issue affecting the live sites
+(`young.qirimca.org` / `young.qirimtatarca.org`), please report it using the
+same email address.

@@ -1,53 +1,88 @@
 @echo off
-echo Uploading optimized files to young.qirimtatarca.org hosting...
+setlocal
 
-rem Set default FTP user if empty
+rem -------------------------------------------------------
+rem  upload_to_hosting.bat
+rem  Uploads dist\ to the WebDAV hosting via a mapped drive.
+rem
+rem  Required environment variables:
+rem    FTP_USER      - WebDAV / cPanel username
+rem    FTP_PASSWORD  - WebDAV / cPanel password
+rem
+rem  Optional environment variable:
+rem    WEBDAV_URL    - Full WebDAV URL (default below)
+rem -------------------------------------------------------
+
+rem --- Validate required variables -----------------------
 if "%FTP_USER%"=="" (
-    set /p FTP_USER="Enter FTP Username [default: qirimtatarca]: "
+    echo ERROR: FTP_USER environment variable is not set.
+    echo.
+    echo Set it before running this script, for example:
+    echo   set FTP_USER=your_username
+    echo   set FTP_PASSWORD=your_password
+    echo   upload_to_hosting.bat
+    exit /b 1
 )
-if "%FTP_USER%"=="" (
-    set FTP_USER=qirimtatarca
-)
-
-rem Use default WebDAV URL if not provided
-if "%WEBDAV_URL%"=="" (
-    set WEBDAV_URL=https://webdisk.qirimtatarca.org:2078/public_html/young
-)
-
-rem Verify password is provided through environment variables
 if "%FTP_PASSWORD%"=="" (
-    echo Error: FTP_PASSWORD is required.
-    echo For security, set FTP_PASSWORD as an environment variable instead of typing it in plain text.
-    echo Optional values:
-    echo   FTP_USER   (default: qirimtatarca)
-    echo   WEBDAV_URL (default: https://webdisk.qirimtatarca.org:2078/public_html/young)
-    echo In GitHub Actions, configure these in:
-    echo   Settings ^> Secrets and variables ^> Actions
+    echo ERROR: FTP_PASSWORD environment variable is not set.
+    echo.
+    echo Set it before running this script, for example:
+    echo   set FTP_USER=your_username
+    echo   set FTP_PASSWORD=your_password
+    echo   upload_to_hosting.bat
     exit /b 1
 )
 
-rem Connect to WebDAV
-echo Connecting to %WEBDAV_URL% as %FTP_USER%...
-net use W: %WEBDAV_URL% /user:%FTP_USER% "%FTP_PASSWORD%"
-if %errorlevel% neq 0 (
-    echo Connection to WebDAV failed. Cleaning up...
-    net use W: /delete 2>nul
+rem --- Set default WebDAV URL if not provided ------------
+if "%WEBDAV_URL%"=="" (
+    set "WEBDAV_URL=https://webdisk.qirimtatarca.org:2078/public_html/young"
+)
+
+echo Uploading optimized files to hosting...
+echo WebDAV URL: %WEBDAV_URL%
+
+rem --- Store credentials in Windows Credential Manager so that
+rem     the password is never passed as a command-line argument to net use
+rem     (which could be visible in process listings or logs).
+rem     Note: cmdkey itself still receives /pass: on the command line, which
+rem     is a limitation of batch-file automation; use an interactive session
+rem     or a secrets manager if that exposure is unacceptable.
+rem     The credential entry is removed again after the transfer.
+rem
+rem     Extract just the hostname (strip scheme, port, and path).
+set "_WEBDAV_TARGET=%WEBDAV_URL%"
+set "_WEBDAV_TARGET=%_WEBDAV_TARGET:https://=%"
+set "_WEBDAV_TARGET=%_WEBDAV_TARGET:http://=%"
+for /f "tokens=1 delims=/" %%H in ("%_WEBDAV_TARGET%") do set "_WEBDAV_HOST_PORT=%%H"
+for /f "tokens=1 delims=:" %%H in ("%_WEBDAV_HOST_PORT%") do set "_WEBDAV_HOST=%%H"
+cmdkey /add:"%_WEBDAV_HOST%" /user:"%FTP_USER%" /pass:"%FTP_PASSWORD%" >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Failed to store WebDAV credentials for %_WEBDAV_HOST%.
     exit /b 1
 )
 
-rem Copy all files from dist to hosting
+rem --- Map WebDAV drive using stored credential --------------
+net use W: "%WEBDAV_URL%" /persistent:no >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Failed to connect to WebDAV at %WEBDAV_URL%.
+    echo Check that FTP_USER and FTP_PASSWORD are correct.
+    cmdkey /delete:"%_WEBDAV_HOST%" >nul 2>&1
+    exit /b 1
+)
+
+rem --- Copy files; capture exit code for cleanup ---------
 robocopy dist\ W:\ /E /Z /R:3 /W:1
-set ROBO_ERR=%errorlevel%
+set ROBOCOPY_EXIT=%errorlevel%
 
-rem Robocopy return code >= 8 indicates copying errors
-if %ROBO_ERR% geq 8 (
-    echo Robocopy failed with exit code %ROBO_ERR%. Cleaning up network drive...
-    net use W: /delete 2>nul
-    exit /b 1
+rem --- Always unmap the drive and remove stored credential --
+net use W: /delete >nul 2>&1
+cmdkey /delete:"%_WEBDAV_HOST%" >nul 2>&1
+
+rem --- Evaluate result (robocopy exit codes 0-7 = success)
+if %ROBOCOPY_EXIT% leq 7 (
+    echo Upload completed successfully.
+    exit /b 0
+) else (
+    echo ERROR: robocopy reported failures ^(exit code %ROBOCOPY_EXIT%^).
+    exit /b %ROBOCOPY_EXIT%
 )
-
-rem Show status and cleanup
-echo Upload completed!
-net use W: /delete
-
-pause
