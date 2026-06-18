@@ -1,12 +1,12 @@
 # QIRI'M YOUNG Website Deployment Guide
 
-## GitHub Pages Deployment (Automatic)
+## Live Domains (Primary)
 
-The website is automatically deployed to GitHub Pages when changes are pushed to the `master` branch.
+Primary production domains:
+- https://young.qirimca.org
+- https://young.qirimtatarca.org
 
-- **Live URL**: https://qirimca.github.io/qirim-young-website/
-- **Workflow**: `.github/workflows/deploy.yml` automatically builds and deploys the site
-- **Base URL**: `/qirim-young-website/` (configured in vite.config.js)
+GitHub Pages (`https://qirimca.github.io/qirim-young-website/`) can be used as a fallback/preview target, but custom domains above are primary.
 
 ## FTP Deployment to qirimtatarca.org
 
@@ -36,7 +36,19 @@ For secure deployments (automated or local), do not hardcode passwords. Instead,
 
 - `FTP_USER`: The FTP/WebDAV username for the hosting account (e.g., `qirimtatarca`).
 - `FTP_PASSWORD`: The password for the FTP/WebDAV hosting account.
-- `WEBDAV_URL`: The WebDAV endpoint URL (e.g., `https://webdisk.qirimtatarca.org:2078/public_html/young`).
+- `WEBDAV_URL` (optional): WebDAV endpoint URL (default: `https://webdisk.qirimtatarca.org:2078/public_html/young`).
+
+GitHub Actions repository secrets path:
+`Settings → Secrets and variables → Actions`
+
+### Local Windows/WebDAV Deployment
+
+`upload_to_hosting.bat` reads:
+- `FTP_USER` (optional, default: `qirimtatarca`)
+- `FTP_PASSWORD` (required)
+- `WEBDAV_URL` (optional, default above)
+
+Set credentials in your shell before running the script (recommended), instead of entering passwords interactively.
 
 ### FTP Configuration for young.qirimtatarca.org
 
@@ -70,16 +82,19 @@ For secure deployments (automated or local), do not hardcode passwords. Instead,
 
 ### Domain Configuration
 
-For subdomain deployment (young.qirimtatarca.org):
-1. ✅ `vite.config.js` already configured with `base: "/"` 
+For custom domain deployment:
+1. ✅ `vite.config.js` configured with `base: "/"` for root deployment
 2. ✅ Build ready with `npm run build`
 3. ✅ Upload dist/ contents to `/public_html/young/` directory
-4. ✅ All paths are relative to subdomain root
+4. ✅ Validate both domains:
+   - `https://young.qirimca.org`
+   - `https://young.qirimtatarca.org`
 
 ### Verification Checklist
 
 After FTP deployment, verify:
-- [ ] Website loads at qirimtatarca.org
+- [ ] Website loads at https://young.qirimca.org
+- [ ] Website loads at https://young.qirimtatarca.org
 - [ ] All 3 languages work (Crimean Tatar, Ukrainian, English)
 - [ ] Navigation between pages functions correctly
 - [ ] Favicon appears in browser tab
