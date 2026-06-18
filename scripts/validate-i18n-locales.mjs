@@ -11,6 +11,10 @@ const localesDir = path.join(repoRoot, 'src', 'i18n', 'locales')
 const requiredFiles = ['uk.json', 'crh.json', 'en.json', 'ach.json']
 const forbiddenFiles = ['eng.json']
 const productionFiles = ['uk.json', 'crh.json', 'en.json']
+const productionTargetFiles = productionFiles.filter(fileName => fileName !== 'uk.json')
+const forbiddenFileReasons = new Map([
+  ['eng.json', 'the app uses en.json, not eng.json']
+])
 const errors = []
 
 async function fileExists(filePath) {
@@ -37,7 +41,9 @@ async function main() {
   for (const fileName of forbiddenFiles) {
     const filePath = path.join(localesDir, fileName)
     if (await fileExists(filePath)) {
-      errors.push(`Forbidden locale file present: src/i18n/locales/${fileName} (the app uses en.json, not eng.json)`)
+      const reason = forbiddenFileReasons.get(fileName)
+      const reasonSuffix = reason ? ` (${reason})` : ''
+      errors.push(`Forbidden locale file present: src/i18n/locales/${fileName}${reasonSuffix}`)
     }
   }
 
@@ -69,7 +75,7 @@ async function main() {
   if (sourceLocale && typeof sourceLocale === 'object' && !Array.isArray(sourceLocale)) {
     const sourceKeys = Object.keys(sourceLocale)
 
-    for (const fileName of ['crh.json', 'en.json']) {
+    for (const fileName of productionTargetFiles) {
       const locale = parsedLocales.get(fileName)
 
       if (!locale || typeof locale !== 'object' || Array.isArray(locale)) {
