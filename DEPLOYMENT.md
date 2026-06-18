@@ -1,22 +1,15 @@
 # QIRI'M YOUNG Website Deployment Guide
 
-## Live Domains
+## Live Domains (Primary)
 
-The same build is served on two domains:
+The same production site is served on both custom domains:
 
-| Domain | URL |
-|--------|-----|
-| Primary | <https://young.qirimca.org> |
-| Mirror  | <https://young.qirimtatarca.org> |
+- <https://young.qirimca.org>
+- <https://young.qirimtatarca.org>
 
-## GitHub Pages Deployment (Automatic)
+GitHub Pages (`https://qirimca.github.io/qirim-young-website/`) can be used as a fallback/preview target, but the custom domains above are primary.
 
-The website is automatically deployed to GitHub Pages when changes are pushed to the `master` branch.
-
-- **Workflow**: `.github/workflows/deploy.yml` automatically builds and deploys the site
-- **Base URL**: `/` (configured in `vite.config.js`)
-
-## WebDAV / cPanel Deployment (Manual)
+## WebDAV / cPanel Deployment
 
 ### Prerequisites
 
@@ -36,13 +29,22 @@ All files from `dist/` must be uploaded to the web-server document root:
 - `apple-touch-icon.png` – Apple device icon
 - `site.webmanifest` – Web app manifest
 - `web-app-manifest-192x192.png`, `web-app-manifest-512x512.png` – PWA icons
-- `fonts/` – Complete font directory (e-Ukraine family, WOFF2)
+- `fonts/` – Complete font directory with e-Ukraine fonts
 - `logo.svg` – QIRI'M YOUNG logo
 
 ### Credentials — NEVER hardcode in source
 
 Hosting credentials **must not** be committed to this repository.
-Store them outside git and pass them as environment variables.
+Store them outside git and pass them as environment variables or GitHub Actions secrets.
+
+Required variables:
+
+- `FTP_USER` — WebDAV / cPanel username
+- `FTP_PASSWORD` — WebDAV / cPanel password
+
+Optional variable:
+
+- `WEBDAV_URL` — WebDAV endpoint URL (default: `https://webdisk.qirimtatarca.org:2078/public_html/young`)
 
 #### Linux / macOS (shell)
 
@@ -101,6 +103,16 @@ The workflow then reads them with `${{ secrets.FTP_PASSWORD }}` etc.
 | WebDAV URL | `https://webdisk.qirimtatarca.org:2078/public_html/young` |
 | Port | 2078 (WebDAV) / 21 (FTP) / 22 (SFTP) |
 
+### Domain Configuration
+
+For custom domain deployment:
+1. ✅ `vite.config.js` configured with `base: "/"` for root deployment
+2. ✅ Build ready with `npm run build`
+3. ✅ Upload `dist/` contents to `/public_html/young/` directory
+4. ✅ Validate both domains:
+   - `https://young.qirimca.org`
+   - `https://young.qirimtatarca.org`
+
 ### Verification Checklist
 
 After deployment, verify:
@@ -112,7 +124,7 @@ After deployment, verify:
 - [ ] Favicon appears in browser tab
 - [ ] Mobile responsiveness works
 - [ ] Fonts load correctly (e-Ukraine family)
-- [ ] Corporate colours display properly
+- [ ] Corporate colors display properly
 - [ ] All images and assets load
 - [ ] Web app manifest works for PWA features
 

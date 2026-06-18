@@ -50,9 +50,16 @@ rem     or a secrets manager if that exposure is unacceptable.
 rem     The credential entry is removed again after the transfer.
 rem
 rem     Extract just the hostname (strip scheme, port, and path).
-for /f "tokens=2 delims=/" %%H in ("%WEBDAV_URL%") do set "_WEBDAV_HOST=%%H"
-for /f "tokens=1 delims=:" %%H in ("%_WEBDAV_HOST%") do set "_WEBDAV_HOST=%%H"
+set "_WEBDAV_TARGET=%WEBDAV_URL%"
+set "_WEBDAV_TARGET=%_WEBDAV_TARGET:https://=%"
+set "_WEBDAV_TARGET=%_WEBDAV_TARGET:http://=%"
+for /f "tokens=1 delims=/" %%H in ("%_WEBDAV_TARGET%") do set "_WEBDAV_HOST_PORT=%%H"
+for /f "tokens=1 delims=:" %%H in ("%_WEBDAV_HOST_PORT%") do set "_WEBDAV_HOST=%%H"
 cmdkey /add:"%_WEBDAV_HOST%" /user:"%FTP_USER%" /pass:"%FTP_PASSWORD%" >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Failed to store WebDAV credentials for %_WEBDAV_HOST%.
+    exit /b 1
+)
 
 rem --- Map WebDAV drive using stored credential --------------
 net use W: "%WEBDAV_URL%" /persistent:no >nul 2>&1
