@@ -9,19 +9,26 @@ if "%FTP_USER%"=="" (
     set FTP_USER=qirimtatarca
 )
 
-rem Prompt for FTP password if empty
-if "%FTP_PASSWORD%"=="" (
-    set /p FTP_PASSWORD="Enter FTP Password: "
+rem Use default WebDAV URL if not provided
+if "%WEBDAV_URL%"=="" (
+    set WEBDAV_URL=https://webdisk.qirimtatarca.org:2078/public_html/young
 )
 
-rem Verify password is provided
+rem Verify password is provided through environment variables
 if "%FTP_PASSWORD%"=="" (
     echo Error: FTP_PASSWORD is required.
+    echo For security, set FTP_PASSWORD as an environment variable instead of typing it in plain text.
+    echo Optional values:
+    echo   FTP_USER   (default: qirimtatarca)
+    echo   WEBDAV_URL (default: https://webdisk.qirimtatarca.org:2078/public_html/young)
+    echo In GitHub Actions, configure these in:
+    echo   Settings ^> Secrets and variables ^> Actions
     exit /b 1
 )
 
 rem Connect to WebDAV
-net use W: https://webdisk.qirimtatarca.org:2078/public_html/young /user:%FTP_USER% "%FTP_PASSWORD%"
+echo Connecting to %WEBDAV_URL% as %FTP_USER%...
+net use W: %WEBDAV_URL% /user:%FTP_USER% "%FTP_PASSWORD%"
 if %errorlevel% neq 0 (
     echo Connection to WebDAV failed. Cleaning up...
     net use W: /delete 2>nul
